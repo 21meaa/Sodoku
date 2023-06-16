@@ -27,6 +27,8 @@ public class Main {
         Registry registry = LocateRegistry.getRegistry(port);
         Start start  = (Start) registry.lookup(Start.class.getName());
 
+        System.out.println("das ist eine veränderung");
+        int test = 0;
     }
 }
 //Zuerst server/Main starten
