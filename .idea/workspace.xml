@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="Verbindung zwischen client und Server steht" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2N5rBusBdf0NIahK859vGemGQXK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/var/svn/swp1/gruppe_06",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="ClockApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.ClockApp" />
+      <module name="A_070_Clocks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.client.Main" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemoteClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.client.RemoteClient" />
+      <module name="A_080_RemoteMethodIntroduction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RemoteServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.RemoteServer" />
+      <module name="A_080_RemoteMethodIntroduction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="de.hft_stuttgart.ip1.server.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.Main" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloWorldTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="A_001_HelloWorld" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="de.hft_stuttgart.ip1" />
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.HelloWorldTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.de.hft_stuttgart.ip1.server.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RemoteClient" />
+        <item itemvalue="Application.RemoteServer" />
+        <item itemvalue="Application.ClockApp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>$USER_HOME$/.subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="$PROJECT_DIR$" />
+          <option name="myCopyRoot" value="$PROJECT_DIR$" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="" />
+      <created>1678964652051</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678964652051</updated>
+      <workItem from="1678964653320" duration="274000" />
+      <workItem from="1680005762144" duration="30000" />
+      <workItem from="1680006424627" duration="15000" />
+      <workItem from="1680006460622" duration="129000" />
+      <workItem from="1680006722279" duration="13000" />
+      <workItem from="1680010440218" duration="715000" />
+      <workItem from="1680011858165" duration="119000" />
+      <workItem from="1680012289847" duration="250000" />
+      <workItem from="1680012545287" duration="678000" />
+      <workItem from="1680013283227" duration="1104000" />
+      <workItem from="1680014580287" duration="13000" />
+      <workItem from="1680014622822" duration="4000" />
+      <workItem from="1680014757551" duration="28000" />
+      <workItem from="1680014819585" duration="1594000" />
+      <workItem from="1680016429079" duration="1558000" />
+      <workItem from="1680020791059" duration="1377000" />
+      <workItem from="1681660120606" duration="6570000" />
+      <workItem from="1681736707901" duration="3453000" />
+      <workItem from="1681805891149" duration="9132000" />
+      <workItem from="1681824084191" duration="10978000" />
+      <workItem from="1681908640160" duration="15204000" />
+      <workItem from="1681927866589" duration="7129000" />
+      <workItem from="1681983949242" duration="4373000" />
+      <workItem from="1682084512665" duration="19711000" />
+      <workItem from="1682114755754" duration="619000" />
+      <workItem from="1682347485077" duration="227000" />
+      <workItem from="1682356538818" duration="2196000" />
+      <workItem from="1682427864939" duration="170000" />
+      <workItem from="1682428053157" duration="16000" />
+      <workItem from="1682428222440" duration="599000" />
+      <workItem from="1682431874357" duration="26000" />
+      <workItem from="1682432292633" duration="588000" />
+      <workItem from="1682432901145" duration="2268000" />
+      <workItem from="1682946907969" duration="33258000" />
+      <workItem from="1683013494750" duration="308000" />
+      <workItem from="1683018884950" duration="626000" />
+      <workItem from="1683021878179" duration="2540000" />
+      <workItem from="1683027120794" duration="786000" />
+      <workItem from="1683029028113" duration="872000" />
+      <workItem from="1683973396362" duration="97000" />
+      <workItem from="1684239541672" duration="696000" />
+      <workItem from="1684419894241" duration="5368000" />
+      <workItem from="1684500716001" duration="13299000" />
+      <workItem from="1684577720144" duration="19470000" />
+      <workItem from="1684618086889" duration="4236000" />
+      <workItem from="1684665530062" duration="23756000" />
+      <workItem from="1684748653030" duration="128000" />
+      <workItem from="1684763350838" duration="380000" />
+      <workItem from="1684765600770" duration="3566000" />
+      <workItem from="1684769513885" duration="1101000" />
+      <workItem from="1684771515349" duration="101000" />
+      <workItem from="1684779953534" duration="23000" />
+      <workItem from="1684843721230" duration="28000" />
+      <workItem from="1684854935988" duration="1840000" />
+      <workItem from="1686316411858" duration="6264000" />
+      <workItem from="1686332211578" duration="6081000" />
+    </task>
+    <task id="LOCAL-00001">
+      <created>1678964800653</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678964800653</updated>
+    </task>
+    <task id="LOCAL-00002">
+      <created>1682085115843</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682085115844</updated>
+    </task>
+    <task id="LOCAL-00003">
+      <created>1682434438748</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682434438748</updated>
+    </task>
+    <task id="LOCAL-00004">
+      <created>1683027900903</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683027900903</updated>
+    </task>
+    <task id="LOCAL-00005">
+      <created>1684622320960</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684622320960</updated>
+    </task>
+    <task id="LOCAL-00006">
+      <created>1684693918699</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1684693918699</updated>
+    </task>
+    <task id="LOCAL-00007">
+      <created>1684763721745</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684763721745</updated>
+    </task>
+    <task id="LOCAL-00008">
+      <created>1684770572148</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684770572148</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Final">
+      <created>1684771606105</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684771606105</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Verbindung zwischen client und Server steht">
+      <created>1686322533191</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686322533191</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Verbindung zwischen client und Server steht">
+      <created>1686332239977</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686332239977</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Verbindung zwischen client und Server steht">
+      <created>1686334329636</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686334329636</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Verbindung zwischen client und Server steht">
+      <created>1686334482123</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686334482123</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Verbindung zwischen client und Server steht">
+      <created>1686337423148</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686337423149</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Verbindung zwischen client und Server steht">
+      <created>1686337597911</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686337597911</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Verbindung zwischen client und Server steht">
+      <created>1686338303508</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686338303508</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Final" />
+    <MESSAGE value="Verbindung zwischen client und Server steht" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verbindung zwischen client und Server steht" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="26" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="31" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/A_002_ArrayUtils/src/main/java/de/hft_stuttgart/ip1/InsertElements.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="buffer[9]" language="JAVA" />
+        <watch expression="re" />
+        <watch expression="buffer" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

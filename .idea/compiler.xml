@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="A_038_SaintLagueSchepers" />
+        <module name="A_093_Sudoku" />
+        <module name="A_039_Exceptional" />
+        <module name="A_001_HelloWorld" />
+        <module name="Basics" />
+        <module name="A_032_BurrowsWheeler" />
+        <module name="A_070_Clocks" />
+        <module name="A_002_ArrayUtils" />
+        <module name="A_011_MoveToFront" />
+        <module name="A_036_DeHondt" />
+        <module name="A_080_RemoteMethodIntroduction" />
+        <module name="A_004_SimpleSort" />
+        <module name="A_037_HareNiemeyer" />
+        <module name="A_008_UniCodeCount" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

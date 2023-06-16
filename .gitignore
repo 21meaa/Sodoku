@@ -1,0 +1,12 @@
+# Project exclude paths
+/A_001_HelloWorld/target/
+/A_002_ArrayUtils/target/
+/A_004_SimpleSort/target/
+/A_008_UniCodeCount/target/
+/A_011_MoveToFront/target/
+/A_036_DeHondt/target/
+/A_039_Exceptional/target/
+/A_070_Clocks/target/
+/A_080_RemoteMethodIntroduction/target/
+/A_093_Sudoku/target/
+/Basics/target/
