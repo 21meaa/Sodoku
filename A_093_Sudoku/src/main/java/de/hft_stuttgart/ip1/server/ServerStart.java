@@ -17,7 +17,6 @@ public class ServerStart {
         int port = Students.getPort(name);
         Registry registry = LocateRegistry.createRegistry(port);
         SudokuSpiel game = new SudokuSpiel(9);
-        System.out.println("neu");
         UnicastRemoteObject.exportObject(game, port);
         try {
             registry.bind(SchnittstelleServerClient.class.getName(), game);

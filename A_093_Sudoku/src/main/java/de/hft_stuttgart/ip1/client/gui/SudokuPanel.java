@@ -22,7 +22,7 @@ public class SudokuPanel extends JPanel {
     private final JPanel parent;
     private int boxX = -1;
     private int boxY = -1;
-    private Character dataField[] = new Character[81];
+    private Character dataField[] = new Character[256];
 
     public SudokuPanel(JPanel upperPane) {
         this.parent = upperPane;
@@ -39,8 +39,8 @@ public class SudokuPanel extends JPanel {
                 Point point = e.getPoint();
                 boxX = boxY = -1;
                 outer:
-                for (int i = 0; i < 9; i++) {
-                    for (int j = 0; j < 9; j++) {
+                for (int i = 0; i < (int) Math.sqrt(dataField.length); i++) {
+                    for (int j = 0; j < (int) Math.sqrt(dataField.length); j++) {
                         if ( getX(i)<=point.x && getX(i+1)>point.x &&
                             getY(j)<=point.y && getY(j+1)>point.y ) {
                             boxX = i;
@@ -53,6 +53,7 @@ public class SudokuPanel extends JPanel {
             }
         });
     }
+
     public void generateSudoku(){
         int squareRoot = (int) Math.sqrt(dataField.length);
         for (int i = 0; i<dataField.length/squareRoot;i++){
@@ -72,16 +73,20 @@ public class SudokuPanel extends JPanel {
 
         Stroke thinStroke = new BasicStroke(1.0f);
         Stroke thickStroke = new BasicStroke(2.0f);
-        for (int i=0; i<10; i++) {
-            g2d.setStroke(i%3==0?thickStroke:thinStroke);
+        //Wichtig
+
+        for (int i=0; i<(int) Math.sqrt(dataField.length)+1; i++) {
+            g2d.setStroke(i%((int) Math.sqrt(Math.sqrt(dataField.length)))==0?thickStroke:thinStroke);
             g2d.drawLine(getX(0), getY(i),
-                    getX(9), getY(i));
+                    getX((int) Math.sqrt(dataField.length)), getY(i));
         }
-        for (int i=0; i<10; i++) {
-            g2d.setStroke(i%3==0?thickStroke:thinStroke);
+        //If 9x9 i<10
+        for (int i=0; i<(int) Math.sqrt(dataField.length)+1; i++) {
+            g2d.setStroke(i%((int) Math.sqrt(Math.sqrt(dataField.length)))==0?thickStroke:thinStroke);
             g2d.drawLine(getX(i), getY(0),
-                    getX(i), getY(9));
+                    getX(i), getY((int) Math.sqrt(dataField.length)));
         }
+
         if ( boxX != -1 && boxY != -1 ) {
             Rectangle rcBox = new Rectangle(getX(boxX)+2, getY(boxY)+2,
                     getX(1)-getX(0)-4, getY(1)-getY(0)-4);
@@ -119,6 +124,7 @@ public class SudokuPanel extends JPanel {
             repaint();
         }
     }
+
     private void computeSize() {
         size = getSize();
         startX = size.width/(widthDivisor+2);
@@ -128,12 +134,25 @@ public class SudokuPanel extends JPanel {
         startY = size.height/(heightDivisor-1)+(int)rcTitle.getHeight();
         g2d.dispose();
     }
-
+    //
     private int getX(int i) {
-        return startX+i*size.width/11;
+        if (dataField.length==81){
+            return startX+i*size.width/11;
+        } else if (dataField.length==256){
+            return startX+i*size.width/20;
+        } else {
+           return startX+i*size.width/11;
+        }
+
     }
 
     private int getY(int i) {
-        return startY+i*size.height/12;
+        if (dataField.length==81){
+            return startX+i*size.width/12;
+        } else if (dataField.length==256){
+            return startX+i*size.width/26;
+        } else {
+            return startX+i*size.width/12;
+        }
     }
 }

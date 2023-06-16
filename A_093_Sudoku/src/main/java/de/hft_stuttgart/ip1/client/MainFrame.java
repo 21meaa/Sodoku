@@ -35,7 +35,7 @@ public class MainFrame extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
         // NOI18N
-        JMenu menu = new JMenu("Datei");
+        JMenu menu = new JMenu("Menu");
         menuBar.add(menu);
         menu.add(new LoginAction(MainFrame.this));
         menu.add(new LogoutAction(MainFrame.this));

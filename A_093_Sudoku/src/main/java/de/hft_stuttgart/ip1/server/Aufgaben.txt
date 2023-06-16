@@ -1,0 +1,13 @@
+
+MUST HAVE
+
+-Programm verstehen -Alle
+-2 Menü Punkte, Schwierigkeit und Grösse unter Menü
+-SudokuSpiel Überarbeiten -Aaron
+-Sudoku in der GUI anzeigen. -Aaron
+
+-Multiplayer Spieler (-Client über GUI Starten.)
+
+NICE TO HAVE
+
+-Schönes Menü.

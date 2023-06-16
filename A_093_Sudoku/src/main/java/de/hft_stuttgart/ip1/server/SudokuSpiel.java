@@ -153,7 +153,7 @@ public class SudokuSpiel implements SchnittstelleServerClient {
         @Override
         public void removeCells()  throws RemoteException{
             Random rand = new Random();
-            double fractionToRemove = 0.5; // Bruchteil der Zellen, die entfernt werden sollen
+            double fractionToRemove = 0.1; // Bruchteil der Zellen, die entfernt werden sollen
 
             for (int i = 0; i < size * size; i++) {
                 int row = i / size;
@@ -179,9 +179,7 @@ public class SudokuSpiel implements SchnittstelleServerClient {
                         System.out.print("|");
                     }
                 }
-
                 System.out.println();
-
                 if ((row + 1) % blockSize == 0 && row != size - 1) {
                     for (int i = 0; i < size + blockSize - 1; i++) {
                         System.out.print("-");
@@ -190,7 +188,6 @@ public class SudokuSpiel implements SchnittstelleServerClient {
                 }
             }
         }
-
         // Konvertiere den Wert in das entsprechende Symbol
         public String getSymbol(int value)  throws RemoteException {
             if (value == 0) {
@@ -202,15 +199,11 @@ public class SudokuSpiel implements SchnittstelleServerClient {
                 return String.valueOf(symbol);
             }
         }
-
     public static void main(String[] args) throws RemoteException {
-        SudokuSpiel sudokuSpiel = new SudokuSpiel(16);
+        SudokuSpiel sudokuSpiel = new SudokuSpiel(9);
         sudokuSpiel.generate();
         sudokuSpiel.printGrid();
     }
-
-
     }
-
 
 

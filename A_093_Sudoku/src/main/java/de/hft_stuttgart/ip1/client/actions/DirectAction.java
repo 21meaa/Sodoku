@@ -9,12 +9,12 @@ public class DirectAction extends AbstractAction {
     private final MainFrame mainFrame;
 
     public DirectAction(MainFrame mainFrame) {
-        super("Direkt!");
+        super("Start");
         this.mainFrame = mainFrame;
     }
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        JOptionPane.showMessageDialog(mainFrame, "Direct");
+        //JOptionPane.showOptionDialog();
     }
 }
