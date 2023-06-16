@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/actions/DirectAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/actions/DirectAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SudokuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SudokuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/common/Start.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/ServerStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/ServerStart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/StartServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/SudokuSpiel.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/SudokuSpiel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/student/StudentName.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" afterDir="false" />
     </list>
     <list id="f7d3524a-c696-4737-bb8a-92dcdb6600ba" name="Changes by 1" comment="" />
     <list id="8602b125-7624-403e-bac4-94b855211cbc" name="Changes by lisak" comment="" />
@@ -66,23 +56,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "276",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/tank/home/21geem1bif/var/svn/swp1/Sodoku",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;276&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/tank/home/21geem1bif/var/svn/swp1/Sodoku&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -184,7 +174,7 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\emre_\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\lisak\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
@@ -254,6 +244,8 @@
       <workItem from="1686919464724" duration="622000" />
       <workItem from="1686921277757" duration="101000" />
       <workItem from="1686921392509" duration="6593000" />
+      <workItem from="1686928407346" duration="161000" />
+      <workItem from="1686928577882" duration="31000" />
     </task>
     <task id="LOCAL-00001">
       <created>1678964800653</created>
