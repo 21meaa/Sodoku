@@ -11,7 +11,9 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+
 public class MainFrame extends JFrame {
+
     private JPanel contentPane;
     private JButton a1Button;
     private JButton a2Button;
@@ -25,7 +27,6 @@ public class MainFrame extends JFrame {
     private JPanel sudokuPanel;
     private JPanel upperPane;
     private JPanel lowerPane;
-
     public MainFrame() {
         $$$setupUI$$$();
         setContentPane($$$getRootComponent$$$());
@@ -50,6 +51,7 @@ public class MainFrame extends JFrame {
         a7Button.setAction(new ButtonAction('7'));
         a8Button.setAction(new ButtonAction('8'));
         a9Button.setAction(new ButtonAction('9'));
+
     }
 
     /**
@@ -112,7 +114,8 @@ public class MainFrame extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
+        // TODO: place custom component creation code her
+
         sudokuPanel = new SudokuPanel(upperPane);
     }
 

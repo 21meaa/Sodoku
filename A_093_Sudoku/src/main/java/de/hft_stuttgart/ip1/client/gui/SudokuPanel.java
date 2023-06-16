@@ -1,5 +1,7 @@
 package de.hft_stuttgart.ip1.client.gui;
 
+import de.hft_stuttgart.ip1.client.MainFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ComponentAdapter;
@@ -51,7 +53,12 @@ public class SudokuPanel extends JPanel {
             }
         });
     }
+    public void generateSudoku(){
+        int squareRoot = (int) Math.sqrt(dataField.length);
+        for (int i = 0; i<dataField.length/squareRoot;i++){
 
+        }
+    }
     public void paintComponent(Graphics gc) {
         super.paintComponent(gc);
         if ( size == null ) {
@@ -101,6 +108,7 @@ public class SudokuPanel extends JPanel {
     }
 
     public void setData(Character c) {
+
         if ( boxX != -1 && boxY != -1 ) {
             if (Objects.equals(dataField[9*boxY+boxX], c) ) {
                 dataField[9 * boxY + boxX] = null;

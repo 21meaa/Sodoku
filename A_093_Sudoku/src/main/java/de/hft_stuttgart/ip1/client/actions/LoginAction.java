@@ -1,7 +1,6 @@
 package de.hft_stuttgart.ip1.client.actions;
 
 import de.hft_stuttgart.ip1.client.MainFrame;
-import de.hft_stuttgart.ip1.client.Player;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +15,6 @@ public class LoginAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-
         JOptionPane.showMessageDialog(mainFrame, "Login");
     }
 }
