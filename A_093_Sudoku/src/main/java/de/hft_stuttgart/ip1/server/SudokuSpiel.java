@@ -72,6 +72,8 @@ public class SudokuSpiel implements SchnittstelleServerClient {
 
         // Konvertiere das Symbol in den entsprechenden Wert
         private int getSymbolValue(String symbol) {
+
+
             if (symbol.matches("[0-9]")) {
                 return Integer.parseInt(symbol);
             } else {
@@ -119,6 +121,7 @@ public class SudokuSpiel implements SchnittstelleServerClient {
         // Überprüfe die Gültigkeit einer Zahl in einer bestimmten Position
         @Override
         public boolean isValid(int row, int col, int num)  throws RemoteException {
+
             // Überprüfe, ob num in der aktuellen Zeile gültig ist
             for (int c = 0; c < size; c++) {
                 if (grid[row][c] == num) {
@@ -153,7 +156,7 @@ public class SudokuSpiel implements SchnittstelleServerClient {
         @Override
         public void removeCells()  throws RemoteException{
             Random rand = new Random();
-            double fractionToRemove = 0.1; // Bruchteil der Zellen, die entfernt werden sollen
+            double fractionToRemove = 0.9; // Bruchteil der Zellen, die entfernt werden sollen
 
             for (int i = 0; i < size * size; i++) {
                 int row = i / size;
@@ -200,6 +203,7 @@ public class SudokuSpiel implements SchnittstelleServerClient {
             }
         }
     public static void main(String[] args) throws RemoteException {
+
         SudokuSpiel sudokuSpiel = new SudokuSpiel(9);
         sudokuSpiel.generate();
         sudokuSpiel.printGrid();

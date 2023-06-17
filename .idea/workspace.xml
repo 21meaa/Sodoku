@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/newGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/SudokuSpiel.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/SudokuSpiel.java" afterDir="false" />
     </list>
-    <list id="f7d3524a-c696-4737-bb8a-92dcdb6600ba" name="Changes by 1" comment="" />
-    <list id="8602b125-7624-403e-bac4-94b855211cbc" name="Changes by lisak" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -60,7 +59,6 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;276&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/tank/home/21geem1bif/var/svn/swp1/Sodoku&quot;,
@@ -69,7 +67,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -81,46 +79,7 @@
       <recent name="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
-    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.client.Client" />
-      <module name="A_093_Sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.hft_stuttgart.ip1.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.client.Main" />
-      <module name="A_093_Sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.hft_stuttgart.ip1.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.ServerStart" />
-      <module name="A_093_Sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.newGame">
     <configuration name="SudokuSpiel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.SudokuSpiel" />
       <module name="A_093_Sudoku" />
@@ -134,8 +93,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.Test" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestKlasse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.TestKlasse" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="de.hft_stuttgart.ip1.server.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.Main" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="newGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.newGame" />
       <module name="A_093_Sudoku" />
       <extension name="coverage">
         <pattern>
@@ -164,17 +162,17 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Client" />
-        <item itemvalue="Application.ServerStart" />
+        <item itemvalue="Application.newGame" />
+        <item itemvalue="Application.Test" />
         <item itemvalue="Application.SudokuSpiel" />
+        <item itemvalue="Application.TestKlasse" />
         <item itemvalue="Application.de.hft_stuttgart.ip1.server.Main" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\lisak\AppData\Roaming\Subversion</configuration>
+    <configuration>$USER_HOME$/.subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
@@ -242,10 +240,8 @@
       <workItem from="1686332211578" duration="6081000" />
       <workItem from="1686914153358" duration="814000" />
       <workItem from="1686919464724" duration="622000" />
-      <workItem from="1686921277757" duration="101000" />
-      <workItem from="1686921392509" duration="6593000" />
-      <workItem from="1686928407346" duration="161000" />
-      <workItem from="1686928577882" duration="31000" />
+      <workItem from="1686997566992" duration="3275000" />
+      <workItem from="1687005407871" duration="10572000" />
     </task>
     <task id="LOCAL-00001">
       <created>1678964800653</created>
