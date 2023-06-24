@@ -3,7 +3,7 @@ package de.hft_stuttgart.ip1.client;
 
 import de.hft_stuttgart.ip1.StudentName;
 import de.hft_stuttgart.ip1.Students;
-import de.hft_stuttgart.ip1.common.SchnittstelleServerClient;
+import de.hft_stuttgart.ip1.common.GenerateSodoku;
 
 import java.awt.*;
 import java.rmi.NotBoundException;
@@ -16,9 +16,8 @@ public class Client {
         String name = StudentName.getStudentName();
         int port = Students.getPort(name);
         Registry registry = LocateRegistry.getRegistry(port);
-        SchnittstelleServerClient schnittstelleServerClient = (SchnittstelleServerClient) registry.lookup(SchnittstelleServerClient.class.getName());
-        schnittstelleServerClient.generate();
-        schnittstelleServerClient.printGrid();
+        GenerateSodoku generateSodoku = (GenerateSodoku) registry.lookup(GenerateSodoku.class.getName());
+
         EventQueue.invokeLater(() -> {
             MainFrame mainFrame = new MainFrame();
             mainFrame.setVisible(true);

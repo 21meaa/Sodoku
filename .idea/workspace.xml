@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="">
+    <list default="true" id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="25x25 Sodoku wird generiert ... aber geht eventuell noch in eine Endlosschleife">
+      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/common/GenerateSodoku.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/newGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/newGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/ServerStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/ServerStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/newGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Sodoku.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +81,46 @@
       <recent name="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.newGame">
+  <component name="RunManager" selected="Application.Client">
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.client.Client" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerStart" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.ServerStart" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Sodoku" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.Sodoku" />
+      <module name="A_093_Sudoku" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SudokuSpiel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.SudokuSpiel" />
       <module name="A_093_Sudoku" />
@@ -93,45 +136,6 @@
     </configuration>
     <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.Test" />
-      <module name="A_093_Sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestKlasse" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.TestKlasse" />
-      <module name="A_093_Sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="de.hft_stuttgart.ip1.server.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.Main" />
-      <module name="A_093_Sudoku" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="de.hft_stuttgart.ip1.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="newGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="de.hft_stuttgart.ip1.server.newGame" />
       <module name="A_093_Sudoku" />
       <extension name="coverage">
         <pattern>
@@ -160,11 +164,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.newGame" />
+        <item itemvalue="Application.ServerStart" />
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Sodoku" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.SudokuSpiel" />
-        <item itemvalue="Application.TestKlasse" />
-        <item itemvalue="Application.de.hft_stuttgart.ip1.server.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +246,10 @@
       <workItem from="1687005407871" duration="10793000" />
       <workItem from="1687025004285" duration="2107000" />
       <workItem from="1687084256553" duration="819000" />
-      <workItem from="1687085421336" duration="13202000" />
+      <workItem from="1687085421336" duration="13314000" />
+      <workItem from="1687129396628" duration="1476000" />
+      <workItem from="1687343456552" duration="4117000" />
+      <workItem from="1687604429614" duration="5166000" />
     </task>
     <task id="LOCAL-00001">
       <created>1678964800653</created>
@@ -370,7 +377,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687023154089</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="25x25 Sodoku wird generiert ... aber geht eventuell noch in eine Endlosschleife">
+      <created>1687101431892</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1687101431892</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +393,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final" />
     <MESSAGE value="Verbindung zwischen client und Server steht" />
-    <option name="LAST_COMMIT_MESSAGE" value="Verbindung zwischen client und Server steht" />
+    <MESSAGE value="25x25 Sodoku wird generiert ... aber geht eventuell noch in eine Endlosschleife" />
+    <option name="LAST_COMMIT_MESSAGE" value="25x25 Sodoku wird generiert ... aber geht eventuell noch in eine Endlosschleife" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
