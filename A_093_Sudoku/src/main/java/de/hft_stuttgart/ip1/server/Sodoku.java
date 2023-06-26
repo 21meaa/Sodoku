@@ -12,11 +12,29 @@ public class Sodoku implements GenerateSodoku {
      Random ran = new Random();
      private int size;
     private final  int BOX_LENGHT;
-    private int[][] grid;
+    public int[][] grid;
     private int[] sym;
+    boolean solutions = false;
+    double schwierigkeit = 0.9;
+
+
 
     public static void main(String[] args) throws RemoteException {
 
+        Sodoku s = new Sodoku(9);
+
+        s.ausgabe(s.grid);
+        s.removeCells();
+        System.out.println(s.solutions(s.sym, s.grid));
+
+
+        while(!s.solutions(s.sym, s.grid)){
+            s.solveSoduku(s.grid, s.sym);
+            s.schwierigkeit += 0.1;
+            s.removeCells();
+        }
+
+        s.ausgabe(s.grid);
     }
     @Override
     public void ausgabe(int [][] grid) throws RemoteException{
@@ -188,6 +206,66 @@ public class Sodoku implements GenerateSodoku {
             }
         }
         return ret;
+    }
+
+    @Override
+    public void removeCells() throws RemoteException {
+
+        double fractionToRemove = schwierigkeit ;
+        // Bruchteil der Zellen, die entfernt werden sollen
+
+        int buffer;
+        for (int i = 0; i < size * size; i++) {
+            int row = i / size;
+            int col = i % size;
+
+            if (ran.nextDouble() <= fractionToRemove) {
+                buffer = grid[row][col];
+                grid[row][col] = 0;
+
+                if (solutions(sym, grid)){
+                    grid[row][col] = buffer;
+                    solutions = false;
+                }
+
+            }
+        }
+    }
+
+    @Override
+    public boolean solutions(int[] symbols, int[][] grid) throws RemoteException {
+
+
+
+        int[][] g = new int[size][size];
+        for (int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                g[i][j] = grid[i][j];
+            }
+        }
+
+        for (int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                if(g[i][j] == 0){
+                    for(int k = 0; k < symbols.length; k++){
+                        if(isValid(g, symbols[k], i, j)){
+                            g[i][j] = symbols[k];
+                            if(solutions(symbols, g)){
+                                return true;
+                            }else {
+                                g[i][j] = 0;
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        if(solutions){
+            return true;
+        }
+        solutions = true;
+        return false;
     }
 
     public int[] getSym() {

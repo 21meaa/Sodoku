@@ -23,5 +23,7 @@ public interface GenerateSodoku extends Remote {
 
     void ausgabe(int[][] grid) throws RemoteException;
     int[] getGrid() throws RemoteException;
+    void removeCells() throws RemoteException;
+    boolean solutions(int[] symbols, int[][] grid) throws RemoteException;
 
 }
