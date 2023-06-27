@@ -1,27 +1,28 @@
 package de.hft_stuttgart.ip1.server;
 
-import de.hft_stuttgart.ip1.common.GenerateSodoku;
+import de.hft_stuttgart.ip1.common.GenerateSudoku;
 
 import java.rmi.RemoteException;
 import java.util.*;
 import java.util.stream.IntStream;
 
-public class Sodoku implements GenerateSodoku {
+public class Sudoku implements GenerateSudoku {
 
 
      Random ran = new Random();
      private int size;
-    private final  int BOX_LENGHT;
-    public int[][] grid;
-    private int[] sym;
-    boolean solutions = false;
-    double schwierigkeit = 0.9;
+     private final  int BOX_LENGTH;
+     private int[][] grid;
+     private int[][] solution;
+     private int[] sym;
+     private boolean solutions = false;
+     private double difficulty;
 
 
 
     public static void main(String[] args) throws RemoteException {
 
-        Sodoku s = new Sodoku(9);
+        Sudoku s = new Sudoku(9, 0.9);
 
         s.ausgabe(s.grid);
         s.removeCells();
@@ -30,11 +31,16 @@ public class Sodoku implements GenerateSodoku {
 
         while(!s.solutions(s.sym, s.grid)){
             s.solveSoduku(s.grid, s.sym);
-            s.schwierigkeit += 0.1;
+            s.difficulty -= 0.1;
             s.removeCells();
         }
 
         s.ausgabe(s.grid);
+        System.out.println(s.difficulty);
+
+        for (int a: s.getGrid()){
+            System.out.println(a);
+        }
     }
     @Override
     public void ausgabe(int [][] grid) throws RemoteException{
@@ -58,28 +64,33 @@ public class Sodoku implements GenerateSodoku {
         }
     }
 
-    public Sodoku(int size) throws RemoteException {
+    public Sudoku(int size, double difficulty) throws RemoteException{
         this.size = size;
-        BOX_LENGHT =  (int)Math.sqrt(size);
+        BOX_LENGTH =  (int)Math.sqrt(size);
         grid = new int[size][size];
         sym  = IntStream.range(1, size+1).toArray();
+        solution = new int[size][size];
+        this.difficulty = difficulty;
+
 
         shuffleArray(sym);
         fillBlockDiagonal(grid, sym, 0, 0);
         solveSoduku(grid, sym);
+        copySolution();
+        removeCells();
     }
 
 
     @Override
     public void fillBlockDiagonal(int[][] grid, int[] symbols, int row, int column)throws RemoteException{
 
-        for(int dia = 0; dia < size; dia += BOX_LENGHT){
+        for(int dia = 0; dia < size; dia += BOX_LENGTH){
 
-            int boxRow = row - row % BOX_LENGHT;
-            int boxColumn = column - column % BOX_LENGHT;
+            int boxRow = row - row % BOX_LENGTH;
+            int boxColumn = column - column % BOX_LENGTH;
 
-            for (int i = boxRow; i < boxRow + BOX_LENGHT; i++){
-                for (int j = boxColumn; j < boxColumn + BOX_LENGHT; j++){
+            for (int i = boxRow; i < boxRow + BOX_LENGTH; i++){
+                for (int j = boxColumn; j < boxColumn + BOX_LENGTH; j++){
                     if (grid[i][j] == 0){
 
                         for(int k = 0 ; k < symbols.length; k++){
@@ -90,8 +101,8 @@ public class Sodoku implements GenerateSodoku {
                     }
                 }
             }
-            column += BOX_LENGHT;
-            row+= BOX_LENGHT;
+            column += BOX_LENGTH;
+            row+= BOX_LENGTH;
         }
 
     }
@@ -166,11 +177,11 @@ public class Sodoku implements GenerateSodoku {
     public boolean isInBox(int[][] grid, int row, int column, int number)throws RemoteException{
 
 
-        int boxRow = row - row % BOX_LENGHT;
-        int boxColumn = column - column % BOX_LENGHT;
+        int boxRow = row - row % BOX_LENGTH;
+        int boxColumn = column - column % BOX_LENGTH;
 
-        for (int i = boxRow; i < boxRow + BOX_LENGHT; i++){
-            for (int j = boxColumn; j < boxColumn + BOX_LENGHT; j++){
+        for (int i = boxRow; i < boxRow + BOX_LENGTH; i++){
+            for (int j = boxColumn; j < boxColumn + BOX_LENGTH; j++){
                 if (grid[i][j] == number){
                     return true;
                 }
@@ -193,16 +204,17 @@ public class Sodoku implements GenerateSodoku {
         return size;
     }
 
-    public int getBOX_LENGHT() {
-        return BOX_LENGHT;
+    public int getBOX_LENGTH() {
+        return BOX_LENGTH;
     }
 
     public int[] getGrid() throws RemoteException{
         int counter = 0;
-        int[] ret = new int[size* size];
+        int[] ret = new int[size * size];
         for(int i = 0; i < size; i++){
             for (int j = 0; j < size; j++){
                 ret[counter]= grid[i][j];
+                counter++;
             }
         }
         return ret;
@@ -211,7 +223,7 @@ public class Sodoku implements GenerateSodoku {
     @Override
     public void removeCells() throws RemoteException {
 
-        double fractionToRemove = schwierigkeit ;
+        double fractionToRemove = difficulty;
         // Bruchteil der Zellen, die entfernt werden sollen
 
         int buffer;
@@ -234,8 +246,6 @@ public class Sodoku implements GenerateSodoku {
 
     @Override
     public boolean solutions(int[] symbols, int[][] grid) throws RemoteException {
-
-
 
         int[][] g = new int[size][size];
         for (int i = 0; i < size; i++){
@@ -271,5 +281,16 @@ public class Sodoku implements GenerateSodoku {
     public int[] getSym() {
         return sym;
     }
+    private void copySolution(){
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                solution[i][j] = grid[i][j];
+            }
+        }
+    }
 
+    @Override
+    public String toString(){
+        return Double.toString(difficulty);
+    }
 }

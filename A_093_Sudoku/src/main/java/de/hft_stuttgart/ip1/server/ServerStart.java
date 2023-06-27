@@ -3,7 +3,7 @@ package de.hft_stuttgart.ip1.server;
 
 import de.hft_stuttgart.ip1.StudentName;
 import de.hft_stuttgart.ip1.Students;
-import de.hft_stuttgart.ip1.common.GenerateSodoku;
+import de.hft_stuttgart.ip1.common.Session;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -11,7 +11,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
-public class ServerStart {
+public class ServerStart{
 
     public int size;
     public static void main(String args[]) throws RemoteException{
@@ -19,11 +19,11 @@ public class ServerStart {
         String name = StudentName.getStudentName();
         int port = Students.getPort(name);
         Registry registry = LocateRegistry.createRegistry(port);
-        Sodoku game = new Sodoku(9);
-        UnicastRemoteObject.exportObject(game, port);
+        SessionHandler sessionHandler = new SessionHandler();
+        UnicastRemoteObject.exportObject(sessionHandler, port);
 
         try {
-            registry.bind(GenerateSodoku.class.getName(), game);
+            registry.bind(Session.class.getName(), sessionHandler);
         } catch (RemoteException | AlreadyBoundException e) {
             throw new RuntimeException(e);
         }

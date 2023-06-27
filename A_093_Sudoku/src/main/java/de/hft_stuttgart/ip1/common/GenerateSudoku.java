@@ -3,7 +3,8 @@ package de.hft_stuttgart.ip1.common;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-public interface GenerateSodoku extends Remote {
+public interface GenerateSudoku extends Remote {
+
 
     void fillBlockDiagonal(int[][] grid, int[] symbols, int row, int column) throws RemoteException;
 
@@ -25,5 +26,6 @@ public interface GenerateSodoku extends Remote {
     int[] getGrid() throws RemoteException;
     void removeCells() throws RemoteException;
     boolean solutions(int[] symbols, int[][] grid) throws RemoteException;
+
 
 }
