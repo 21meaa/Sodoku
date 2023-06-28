@@ -12,6 +12,24 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.util.Objects;
 
+/**
+ * Was sind die Zahlen in der Console?
+ * Warum verschiebt sich das Sudoku irgenwie, es zeichnet ab gewissen cells nicht mehr richtig oder gar nicht
+ * Einloggen und ausloggen funktioniert nicht?
+ *
+ * Wilkommen Frame:
+ *  + Sudoku Überschrift,
+ *  + hallo...,
+ *  + Frage grid-size (button), dann frage dicfficulty (button),
+ *  + wenn beides gefargt wurde -> rufe neues window auf
+ * Spiel Frame:
+ *  + je nach auswahl erzeuge neues sudoku-feld (heißt 3 unteschiedliche bauen?, weil 25x25 so lange dauert mit progressbar?)
+ *  + per maus/tasten oder per buttons?
+ *  + menubar: Menu = menu, menu += BackToWelcome,exit
+
+ *              Menu = Zug beenden -> an spieler weitegeben ???
+ */
+
 public class SudokuPanel extends JPanel {
     private int gridCount = 10;
     private int widthDivisor = 10;

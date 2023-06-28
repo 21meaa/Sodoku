@@ -1,7 +1,6 @@
 package de.hft_stuttgart.ip1.server;
 
 import de.hft_stuttgart.ip1.common.Session;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,9 @@ public class SessionHandler implements Session {
         return allSudokus;
     }
 
+    /**
+     * Wo wird das aufgerufen, bzw wie übergibt man size und difficulty?
+     */
     @Override
     public int[] addGame(int size, double difficulty) throws RemoteException {
         Sudoku sudoku = new Sudoku(size, difficulty);
@@ -27,11 +29,16 @@ public class SessionHandler implements Session {
         return sudoku.getGrid();
     }
 
+    //Verbinden: in Panel session.addGame(size, difficulty);
+
     @Override
     public String getGames() throws RemoteException {
         return allSudokus.toString();
     }
 
+    /**
+     * Was gibt das aus?
+     */
     @Override
     public String toString() {
         String buffer = "";

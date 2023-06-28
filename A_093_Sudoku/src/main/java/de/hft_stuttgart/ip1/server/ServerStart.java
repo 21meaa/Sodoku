@@ -13,14 +13,14 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ServerStart{
 
-    public int size;
+    public int size; //Delete?
     public static void main(String args[]) throws RemoteException{
 
-        String name = StudentName.getStudentName();
-        int port = Students.getPort(name);
-        Registry registry = LocateRegistry.createRegistry(port);
-        SessionHandler sessionHandler = new SessionHandler();
-        UnicastRemoteObject.exportObject(sessionHandler, port);
+        String name = StudentName.getStudentName(); //Holt Studenten
+        int port = Students.getPort(name); //?
+        Registry registry = LocateRegistry.createRegistry(port); //?
+        SessionHandler sessionHandler = new SessionHandler(); //Holt alle Soudku-Varialen?
+        UnicastRemoteObject.exportObject(sessionHandler, port); //?
 
         try {
             registry.bind(Session.class.getName(), sessionHandler);

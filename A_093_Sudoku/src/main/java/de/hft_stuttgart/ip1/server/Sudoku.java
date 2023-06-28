@@ -1,61 +1,46 @@
 package de.hft_stuttgart.ip1.server;
 
 import de.hft_stuttgart.ip1.common.GenerateSudoku;
-
 import java.rmi.RemoteException;
 import java.util.*;
 import java.util.stream.IntStream;
 
 public class Sudoku implements GenerateSudoku {
 
-
-     Random ran = new Random();
-     private int size;
-     private final  int BOX_LENGTH;
-     private int[][] grid;
-     private int[][] solution;
-     private int[] sym;
-     private boolean solutions = false;
-     private double difficulty;
-
-
+    Random ran = new Random();
+    private int size;
+    private final int BOX_LENGTH;
+    private int[][] grid;
+    private int[][] solution;
+    private int[] sym;
+    private boolean solutions = false;
+    private double difficulty;
 
     public static void main(String[] args) throws RemoteException {
-
-        Sudoku s = new Sudoku(9, 0.9);
-
-        s.ausgabe(s.grid);
-        s.removeCells();
+        /**
+         * Sollte man dies nicht individuell ändern können? Wie steuert man difficulty?
+         * Schwierigeitsgrade: 0.4, 0.6, 0.8
+         */
+        Sudoku s = new Sudoku(9, 0.6); //True nicht gut
         System.out.println(s.solutions(s.sym, s.grid));
-
-
-        while(!s.solutions(s.sym, s.grid)){
-            s.solveSoduku(s.grid, s.sym);
-            s.difficulty -= 0.1;
-            s.removeCells();
-        }
-
         s.ausgabe(s.grid);
-        System.out.println(s.difficulty);
-
-        for (int a: s.getGrid()){
-            System.out.println(a);
-        }
     }
+
     @Override
-    public void ausgabe(int [][] grid) throws RemoteException{
-        for(int i = 0; i < size; i++){
-            for (int j = 0; j  < size; j ++){
-                if(j == 0){
+    public void ausgabe(int[][] grid) throws RemoteException {
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (j == 0) {
                     System.out.print("|");
                 }
-                if(grid[i][j] > 9){
+                if (grid[i][j] > 9) {
                     System.out.print(getSymbol(grid[i][j]));
-                }else {
+                } else {
                     System.out.print(grid[i][j]);
                 }
 
-                if((j+1) % Math.sqrt(size) == 0){
+                if ((j + 1) % Math.sqrt(size) == 0) {
                     System.out.print("|");
                 }
             }
@@ -64,14 +49,14 @@ public class Sudoku implements GenerateSudoku {
         }
     }
 
-    public Sudoku(int size, double difficulty) throws RemoteException{
+    public Sudoku(int size, double difficulty) throws RemoteException {
+
         this.size = size;
-        BOX_LENGTH =  (int)Math.sqrt(size);
+        BOX_LENGTH = (int) Math.sqrt(size);
         grid = new int[size][size];
-        sym  = IntStream.range(1, size+1).toArray();
+        sym = IntStream.range(1, size + 1).toArray();
         solution = new int[size][size];
         this.difficulty = difficulty;
-
 
         shuffleArray(sym);
         fillBlockDiagonal(grid, sym, 0, 0);
@@ -80,21 +65,19 @@ public class Sudoku implements GenerateSudoku {
         removeCells();
     }
 
-
     @Override
-    public void fillBlockDiagonal(int[][] grid, int[] symbols, int row, int column)throws RemoteException{
+    public void fillBlockDiagonal(int[][] grid, int[] symbols, int row, int column) throws RemoteException {
 
-        for(int dia = 0; dia < size; dia += BOX_LENGTH){
-
+        for (int dia = 0; dia < size; dia += BOX_LENGTH) {
             int boxRow = row - row % BOX_LENGTH;
             int boxColumn = column - column % BOX_LENGTH;
 
-            for (int i = boxRow; i < boxRow + BOX_LENGTH; i++){
-                for (int j = boxColumn; j < boxColumn + BOX_LENGTH; j++){
-                    if (grid[i][j] == 0){
+            for (int i = boxRow; i < boxRow + BOX_LENGTH; i++) {
+                for (int j = boxColumn; j < boxColumn + BOX_LENGTH; j++) {
+                    if (grid[i][j] == 0) {
 
-                        for(int k = 0 ; k < symbols.length; k++){
-                            if(isValid(grid, symbols[k], row, column)){
+                        for (int k = 0; k < symbols.length; k++) {
+                            if (isValid(grid, symbols[k], row, column)) {
                                 grid[i][j] = symbols[k];
                             }
                         }
@@ -102,22 +85,22 @@ public class Sudoku implements GenerateSudoku {
                 }
             }
             column += BOX_LENGTH;
-            row+= BOX_LENGTH;
+            row += BOX_LENGTH;
         }
-
     }
-    @Override
-    public boolean solveSoduku(int[][] grid, int[] symbols)throws RemoteException{
 
-        for (int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                if(grid[i][j] == 0){
-                    for(int k = 0; k < symbols.length; k++){
-                        if(isValid(grid, symbols[k], i, j)){
+    @Override
+    public boolean solveSoduku(int[][] grid, int[] symbols) throws RemoteException {
+
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (grid[i][j] == 0) {
+                    for (int k = 0; k < symbols.length; k++) {
+                        if (isValid(grid, symbols[k], i, j)) {
                             grid[i][j] = symbols[k];
-                            if(solveSoduku(grid, symbols)){
+                            if (solveSoduku(grid, symbols)) {
                                 return true;
-                            }else {
+                            } else {
                                 grid[i][j] = 0;
                             }
                         }
@@ -130,7 +113,8 @@ public class Sudoku implements GenerateSudoku {
     }
 
     @Override
-    public void shuffleArray(int[] array) throws RemoteException{
+    public void shuffleArray(int[] array) throws RemoteException {
+
         Random rand = new Random();
 
         for (int i = array.length - 1; i > 0; i--) {
@@ -142,7 +126,8 @@ public class Sudoku implements GenerateSudoku {
     }
 
     @Override
-    public String getSymbol(int value)throws RemoteException{
+    public String getSymbol(int value) throws RemoteException {
+
         if (value == 0) {
             return " ";
         } else if (value < 10) {
@@ -152,37 +137,38 @@ public class Sudoku implements GenerateSudoku {
             return String.valueOf(symbol);
         }
     }
+
     @Override
-    public boolean isInRow(int[][] grid, int row, int number)throws RemoteException{
+    public boolean isInRow(int[][] grid, int row, int number) throws RemoteException {
 
-
-        for (int i = 0; i < size; i++ ){
-            if(grid[row][i] == number){
+        for (int i = 0; i < size; i++) {
+            if (grid[row][i] == number) {
                 return true;
             }
         }
         return false;
     }
-    @Override
-    public boolean isInColumn(int[][] grid, int column, int number)throws RemoteException{
 
-        for (int i = 0; i < size; i++ ){
-            if(grid[i][column] == number){
+    @Override
+    public boolean isInColumn(int[][] grid, int column, int number) throws RemoteException {
+
+        for (int i = 0; i < size; i++) {
+            if (grid[i][column] == number) {
                 return true;
             }
         }
         return false;
     }
-    @Override
-    public boolean isInBox(int[][] grid, int row, int column, int number)throws RemoteException{
 
+    @Override
+    public boolean isInBox(int[][] grid, int row, int column, int number) throws RemoteException {
 
         int boxRow = row - row % BOX_LENGTH;
         int boxColumn = column - column % BOX_LENGTH;
 
-        for (int i = boxRow; i < boxRow + BOX_LENGTH; i++){
-            for (int j = boxColumn; j < boxColumn + BOX_LENGTH; j++){
-                if (grid[i][j] == number){
+        for (int i = boxRow; i < boxRow + BOX_LENGTH; i++) {
+            for (int j = boxColumn; j < boxColumn + BOX_LENGTH; j++) {
+                if (grid[i][j] == number) {
                     return true;
                 }
             }
@@ -191,11 +177,13 @@ public class Sudoku implements GenerateSudoku {
     }
 
     @Override
-    public boolean isValid(int[][] grid, int number, int row, int column)throws RemoteException{
-
+    public boolean isValid(int[][] grid, int number, int row, int column) throws RemoteException {
         return !isInRow(grid, row, number) && !isInColumn(grid, column, number) && !isInBox(grid, row, column, number);
     }
 
+    /**
+     * Noch nicht löschen
+     */
     public Random getRan() {
         return ran;
     }
@@ -208,12 +196,13 @@ public class Sudoku implements GenerateSudoku {
         return BOX_LENGTH;
     }
 
-    public int[] getGrid() throws RemoteException{
+    public int[] getGrid() throws RemoteException {
+
         int counter = 0;
         int[] ret = new int[size * size];
-        for(int i = 0; i < size; i++){
-            for (int j = 0; j < size; j++){
-                ret[counter]= grid[i][j];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                ret[counter] = grid[i][j];
                 counter++;
             }
         }
@@ -224,7 +213,7 @@ public class Sudoku implements GenerateSudoku {
     public void removeCells() throws RemoteException {
 
         double fractionToRemove = difficulty;
-        // Bruchteil der Zellen, die entfernt werden sollen
+        // Bruchteil der Zellen, die entfernt werden sollen (Zahlen die entfernt werden)
 
         int buffer;
         for (int i = 0; i < size * size; i++) {
@@ -235,11 +224,10 @@ public class Sudoku implements GenerateSudoku {
                 buffer = grid[row][col];
                 grid[row][col] = 0;
 
-                if (solutions(sym, grid)){
+                if (solutions(sym, grid)) {
                     grid[row][col] = buffer;
                     solutions = false;
                 }
-
             }
         }
     }
@@ -248,21 +236,21 @@ public class Sudoku implements GenerateSudoku {
     public boolean solutions(int[] symbols, int[][] grid) throws RemoteException {
 
         int[][] g = new int[size][size];
-        for (int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 g[i][j] = grid[i][j];
             }
         }
 
-        for (int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                if(g[i][j] == 0){
-                    for(int k = 0; k < symbols.length; k++){
-                        if(isValid(g, symbols[k], i, j)){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (g[i][j] == 0) {
+                    for (int k = 0; k < symbols.length; k++) {
+                        if (isValid(g, symbols[k], i, j)) {
                             g[i][j] = symbols[k];
-                            if(solutions(symbols, g)){
+                            if (solutions(symbols, g)) {
                                 return true;
-                            }else {
+                            } else {
                                 g[i][j] = 0;
                             }
                         }
@@ -271,26 +259,30 @@ public class Sudoku implements GenerateSudoku {
                 }
             }
         }
-        if(solutions){
+        if (solutions) {
             return true;
         }
         solutions = true;
         return false;
     }
 
+    /**
+     * noch nicht löschen
+     */
     public int[] getSym() {
         return sym;
     }
-    private void copySolution(){
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
+
+    private void copySolution() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 solution[i][j] = grid[i][j];
             }
         }
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return Double.toString(difficulty);
     }
 }
