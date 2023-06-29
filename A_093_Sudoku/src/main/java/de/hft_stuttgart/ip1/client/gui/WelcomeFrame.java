@@ -1,7 +1,18 @@
 package de.hft_stuttgart.ip1.client.gui;
 
+import de.hft_stuttgart.ip1.StudentName;
+import de.hft_stuttgart.ip1.Students;
+import de.hft_stuttgart.ip1.client.Client;
+import de.hft_stuttgart.ip1.common.Session;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 
 public class WelcomeFrame extends JFrame {
 
@@ -13,11 +24,25 @@ public class WelcomeFrame extends JFrame {
     private JButton btn9x9;
     private JComboBox comboBox;
     private JLabel lblWhichDifficulty;
+    private int size;
+    private double difficulty = 0.4;
+    private String name = StudentName.getStudentName();
+    private int port = Students.getPort(name);
+    private Registry registry = LocateRegistry.getRegistry(port);
+    private Session session = (Session) registry.lookup(Session.class.getName());
+    private int[] grid;
 
     //Starte Game -> wird in Client aufgerufen und geoeffnet
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RemoteException, NotBoundException {
         SwingUtilities.invokeLater(() -> {
-            WelcomeFrame frame = new WelcomeFrame();
+            WelcomeFrame frame = null;
+            try {
+                frame = new WelcomeFrame();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            } catch (NotBoundException e) {
+                throw new RuntimeException(e);
+            }
             frame.setVisible(true);
             frame.setResizable(false); //verhindert größenveränderung des Fensters
             if (frame.isActive() == false) {
@@ -26,9 +51,10 @@ public class WelcomeFrame extends JFrame {
                  * */
             }
         });
+
     }
 
-    public WelcomeFrame() throws HeadlessException {
+    public WelcomeFrame() throws HeadlessException, RemoteException, NotBoundException {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Sudoku Game");
@@ -42,6 +68,7 @@ public class WelcomeFrame extends JFrame {
 
         placeLabels();
         placeButtons();
+
     }
 
     private void placeLabels() {
@@ -73,12 +100,18 @@ public class WelcomeFrame extends JFrame {
         btn16x16.setBorder(new RoundedBorder(10));
         btn16x16.setBackground(new Color(0x4B19A2));
         btn16x16.addActionListener(e -> {
+            size = 16;
             /**
              * Size und Difficulty bestimmen, addGame irgendwie aufrufen
              * Schwierigeitsgrade: 0.4, 0.6, 0.8,
              * -> wenn Button gedrückt, frage nach Position/Nummer in ComboBox um Schwierigkeitsgrad zu bekommen
              */
-            new GameFrame().setVisible(true);
+            createGame();
+            try {
+                new GameFrame(grid, session).setVisible(true);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            }
             this.dispose();
         });
 
@@ -91,12 +124,18 @@ public class WelcomeFrame extends JFrame {
         btn25x25.setBorder(new RoundedBorder(10));
         btn25x25.setBackground(new Color(75, 25, 162));
         btn25x25.addActionListener(e -> {
+            size = 25;
             /**
              * Size und Difficulty bestimmen, addGame irgendwie aufrufen
              * Schwierigeitsgrade: 0.4, 0.6, 0.8,
              * -> wenn Button gedrückt, frage nach Position/Nummer in ComboBox um Schwierigkeitsgrad zu bekommen
              */
-            new GameFrame().setVisible(true);
+            createGame();
+            try {
+                new GameFrame(grid, session).setVisible(true);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            }
             this.dispose();
         });
 
@@ -109,12 +148,19 @@ public class WelcomeFrame extends JFrame {
         btn9x9.setBorder(new RoundedBorder(10));
         btn9x9.setBackground(new Color(75, 25, 162));
         btn9x9.addActionListener(e -> {
+            size = 9;
             /**
              * Size und Difficulty bestimmen, addGame irgendwie aufrufen
              * Schwierigeitsgrade: 0.4, 0.6, 0.8,
              * -> wenn Button gedrückt, frage nach Position/Nummer in ComboBox um Schwierigkeitsgrad zu bekommen
+             *
              */
-            new GameFrame().setVisible(true);
+            createGame();
+            try {
+                new GameFrame(grid, session).setVisible(true);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            }
             this.dispose();
         });
 
@@ -131,6 +177,19 @@ public class WelcomeFrame extends JFrame {
         comboBox.setForeground(Color.white);
         comboBox.setModel(new DefaultComboBoxModel(new String[]{"Easy", "Medium", "Hard"}));
         comboBox.setBounds(233, 171, 101, 21);
+        comboBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (comboBox.getSelectedItem().toString().equals("Easy")) {
+
+                    difficulty = 0.4;
+                }else if (comboBox.getSelectedItem().toString().equals("Medium")){
+                    difficulty = 0.6;
+                }else {
+                    difficulty = 0.8;
+                }
+            }
+        });
 
         //Fuegt alle Components in das Main-Panel ein
         windowPanel.setLayout(null); //Ist auf Absolute Layout
@@ -141,5 +200,12 @@ public class WelcomeFrame extends JFrame {
         windowPanel.add(btn25x25);
         windowPanel.add(lblWhichDifficulty);
         windowPanel.add(comboBox);
+    }
+    private void createGame(){
+        try {
+            grid = session.addGame(size, difficulty);
+        } catch (RemoteException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }

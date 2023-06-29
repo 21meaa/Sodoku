@@ -280,6 +280,6 @@ public class Sudoku implements GenerateSudoku {
 
     @Override
     public String toString() {
-        return Double.toString(difficulty);
+        return Double.toString(difficulty) + "  " + size;
     }
 }

@@ -3,6 +3,7 @@ package de.hft_stuttgart.ip1.client;
 
 import de.hft_stuttgart.ip1.StudentName;
 import de.hft_stuttgart.ip1.Students;
+import de.hft_stuttgart.ip1.client.gui.WelcomeFrame;
 import de.hft_stuttgart.ip1.common.Session;
 
 import java.awt.*;
@@ -18,18 +19,28 @@ public class Client {
         Registry registry = LocateRegistry.getRegistry(port);
         Session session = (Session) registry.lookup(Session.class.getName());
 
-        int[] game = session.addGame(9, 0.0); //vorläufig
+        //int[] game = session.addGame(9, 0.0); //vorläufig
         System.out.println(session.getGames());
 
+        EventQueue.invokeLater(() -> {
+            WelcomeFrame welcomeFrame = null;
+            try {
+                welcomeFrame = new WelcomeFrame();
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            } catch (NotBoundException e) {
+                throw new RuntimeException(e);
+            }
+            welcomeFrame.setVisible(true);
+
+        });
+        /*
         EventQueue.invokeLater(() -> {
             MainFrame mainFrame = new MainFrame();
             mainFrame.setVisible(true);
         });
 
-
-        for (int a: game){
-            System.out.println(a);
-        }
+         */
     }
 }
 

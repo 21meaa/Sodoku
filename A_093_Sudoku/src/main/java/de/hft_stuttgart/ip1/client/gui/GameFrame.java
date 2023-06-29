@@ -1,5 +1,8 @@
 package de.hft_stuttgart.ip1.client.gui;
 
+import de.hft_stuttgart.ip1.common.Session;
+import de.hft_stuttgart.ip1.server.Sudoku;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
@@ -14,6 +17,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import javax.swing.JButton;
 
 public class GameFrame extends JFrame {
@@ -52,11 +57,13 @@ public class GameFrame extends JFrame {
     private JButton btn23;
     private JButton btn24;
     private JButton btn25;
+    private int[] grid;
+    private Session session;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                GameFrame frame = new GameFrame();
+                GameFrame frame = new GameFrame(null, null);
                 frame.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -64,7 +71,10 @@ public class GameFrame extends JFrame {
         });
     }
 
-    public GameFrame() throws HeadlessException {
+    public GameFrame(int [] grid,  Session session) throws HeadlessException, RemoteException{
+
+        this.grid = grid;
+        this.session = session;
         this.setResizable(false); //verhindert groeßenveraenderung des Fensters
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Sudoku Game");
@@ -100,7 +110,13 @@ public class GameFrame extends JFrame {
         //Abfrage per JOptionPane, ob wirklich zurück zum WelcomeFrame; Yes == 0, No == 1, X = -1
         mn_it_BackToStart.addActionListener(e -> {
             if (JOptionPane.showConfirmDialog(mn_it_BackToStart, "Do you want to go back to the Main-Menu and choose a different game?", "Go back to WelcomeFrame", JOptionPane.YES_NO_OPTION) == 0) {
-                new WelcomeFrame().setVisible(true);
+                try {
+                    new WelcomeFrame().setVisible(true);
+                } catch (RemoteException ex) {
+                    throw new RuntimeException(ex);
+                } catch (NotBoundException ex) {
+                    throw new RuntimeException(ex);
+                }
                 this.dispose();
                 System.out.println("Go back to welcomeFrame");
             } else {
