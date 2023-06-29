@@ -12,6 +12,9 @@ public class SudokuPanel_1 extends JPanel {
     private int size;
     private int [] grid;
 
+    private int startX = 0;
+    private int startY = 0;
+
     public SudokuPanel_1(int[] grid, int size) {
         this.setPreferredSize(new Dimension(800, 500));
         this.grid = grid;
@@ -33,17 +36,9 @@ public class SudokuPanel_1 extends JPanel {
         //Zeichne Linien in x-Richtung
         for (int x = 0; x <= this.getWidth(); x+= slotWidth) {
 
-            //Zeichne Zahlen
-            g2d.setFont(new Font("Arial", Font.BOLD, 23));
-            g2d.setColor(Color.blue);
-            for (int i = 1; i < size; i++) {
-                for (int j = 1; j < size; j++) {
-                    int zahl = grid[i];
-                    g2d.drawString(Integer.toString(grid[i*j]),getWidth() / (size-i) +10,getHeight() / (size-j) +10);
-                }
-            }
 
             if ((x / slotWidth) % (int) Math.sqrt(size) == 0){
+
                 g2d.setStroke(new BasicStroke(2));
                 g2d.drawLine(x,0, x, this.getHeight());
             } else {
@@ -63,6 +58,35 @@ public class SudokuPanel_1 extends JPanel {
             }
         }
 
+        for (int i = 1; i <= size; i++){
+
+            for (int j = 1; j <= size; j++){
+
+                g2d.drawString(Integer.toString(grid[0]), i * 80,50 * j );
+            }
+        }
+    }
+    private int getX(int i) {
+        if (size * size == 81){
+            return startX+i* this.getWidth() / 11;
+        } else if (size * size == 256){
+
+            return startX+i* this.getWidth() /20;
+        } else {
+            return startX+i* this.getWidth() /11;
+        }
     }
 
+    /*
+    private int getY(int i) {
+        if (size * size == 81){
+            return startX+i*size.width/12;
+        } else if (size * size == 256){
+            return startX+i*size.width/26;
+        } else {
+            return startX+i*size.width/12;
+        }
+    }
+
+     */
 }

@@ -3,6 +3,7 @@ package de.hft_stuttgart.ip1.client.gui;
 import de.hft_stuttgart.ip1.StudentName;
 import de.hft_stuttgart.ip1.Students;
 import de.hft_stuttgart.ip1.client.Client;
+import de.hft_stuttgart.ip1.client.MainFrame;
 import de.hft_stuttgart.ip1.common.Session;
 
 import javax.swing.*;
@@ -108,7 +109,8 @@ public class WelcomeFrame extends JFrame {
              */
             createGame();
             try {
-                new GameFrame(grid, session, size).setVisible(true);
+                new MainFrame(session, size, grid).setVisible(true);
+                //new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
@@ -132,7 +134,8 @@ public class WelcomeFrame extends JFrame {
              */
             createGame();
             try {
-                new GameFrame(grid, session, size).setVisible(true);
+                new MainFrame(session, size, grid).setVisible(true);
+                //new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
@@ -157,7 +160,8 @@ public class WelcomeFrame extends JFrame {
              */
             createGame();
             try {
-                new GameFrame(grid, session, size).setVisible(true);
+                new MainFrame(session, size, grid).setVisible(true);
+                //new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }

@@ -5,11 +5,13 @@ import de.hft_stuttgart.ip1.client.actions.ExitAction;
 import de.hft_stuttgart.ip1.client.actions.LoginAction;
 import de.hft_stuttgart.ip1.client.actions.LogoutAction;
 import de.hft_stuttgart.ip1.client.gui.SudokuPanel;
+import de.hft_stuttgart.ip1.common.Session;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.rmi.RemoteException;
 
 
 public class MainFrame extends JFrame {
@@ -24,10 +26,36 @@ public class MainFrame extends JFrame {
     private JButton a7Button;
     private JButton a8Button;
     private JButton a9Button;
+
+
     private JPanel sudokuPanel;
     private JPanel upperPane;
     private JPanel lowerPane;
-    public MainFrame() {
+    private JButton button1;
+    private JButton button2;
+    private JButton button3;
+    private JButton button4;
+    private JButton button5;
+    private JButton button6;
+    private JButton button7;
+    private JButton button8;
+    private JButton button9;
+    private JButton button10;
+    private JButton button11;
+    private JButton button12;
+    private JButton button13;
+    private JButton button14;
+    private JButton button15;
+    private JButton button16;
+
+
+    private int[] grid;
+    private Session session;
+    private int sudSize;
+    public MainFrame(Session session, int sudSize, int[] grid) throws RemoteException {
+        this.session = session;
+        this.grid = grid;
+        this.sudSize = sudSize;
         $$$setupUI$$$();
         setContentPane($$$getRootComponent$$$());
         pack();
@@ -51,6 +79,24 @@ public class MainFrame extends JFrame {
         a7Button.setAction(new ButtonAction('7'));
         a8Button.setAction(new ButtonAction('8'));
         a9Button.setAction(new ButtonAction('9'));
+        button1.setAction(new ButtonAction('a'));
+        button2.setAction(new ButtonAction('b'));
+        button3.setAction(new ButtonAction('c'));
+        button4.setAction(new ButtonAction('d'));
+        button5.setAction(new ButtonAction('e'));
+        button6.setAction(new ButtonAction('f'));
+        button7.setAction(new ButtonAction('g'));
+        button8.setAction(new ButtonAction('h'));
+        button9.setAction(new ButtonAction('i'));
+        button10.setAction(new ButtonAction('j'));
+        button11.setAction(new ButtonAction('k'));
+        button12.setAction(new ButtonAction('l'));
+        button13.setAction(new ButtonAction('m'));
+        button14.setAction(new ButtonAction('n'));
+        button15.setAction(new ButtonAction('o'));
+        button16.setAction(new ButtonAction('p'));
+
+        System.out.println(session.getGames());
 
     }
 
@@ -104,6 +150,72 @@ public class MainFrame extends JFrame {
         a9Button = new JButton();
         a9Button.setText("9");
         lowerPane.add(a9Button, new com.intellij.uiDesigner.core.GridConstraints(0, 8, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+
+        button1 = new JButton();
+        button1.setText("a");
+        lowerPane.add(button1);
+
+        button2 = new JButton();
+        button1.setText("b");
+        lowerPane.add(button1);
+
+        button3 = new JButton();
+        button1.setText("c");
+        lowerPane.add(button1);
+
+        button4 = new JButton();
+        button1.setText("d");
+        lowerPane.add(button1);
+
+        button5 = new JButton();
+        button1.setText("e");
+        lowerPane.add(button1);
+
+        button6 = new JButton();
+        button1.setText("f");
+        lowerPane.add(button1);
+
+        button7 = new JButton();
+        button1.setText("g");
+        lowerPane.add(button1);
+
+        button8 = new JButton();
+        button1.setText("h");
+        lowerPane.add(button1);
+
+        button9 = new JButton();
+        button1.setText("g");
+        lowerPane.add(button1);
+
+        button10 = new JButton();
+        button1.setText("h");
+        lowerPane.add(button1);
+
+        button11 = new JButton();
+        button1.setText("i");
+        lowerPane.add(button1);
+
+
+        button12 = new JButton();
+        button1.setText("j");
+        lowerPane.add(button1);
+
+        button13 = new JButton();
+        button1.setText("k");
+        lowerPane.add(button1);
+
+        button14 = new JButton();
+        button1.setText("l");
+        lowerPane.add(button1);
+
+        button15 = new JButton();
+        button1.setText("m");
+        lowerPane.add(button1);
+
+        button16 = new JButton();
+        button1.setText("n");
+        lowerPane.add(button1);
+
     }
 
     /**
@@ -116,7 +228,7 @@ public class MainFrame extends JFrame {
     private void createUIComponents() {
         // TODO: place custom component creation code her
 
-        sudokuPanel = new SudokuPanel(upperPane);
+        sudokuPanel = new SudokuPanel(upperPane, sudSize, session, grid);
     }
 
     private class ButtonAction extends AbstractAction {

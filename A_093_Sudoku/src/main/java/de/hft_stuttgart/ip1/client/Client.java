@@ -19,7 +19,6 @@ public class Client {
         Registry registry = LocateRegistry.getRegistry(port);
         Session session = (Session) registry.lookup(Session.class.getName());
 
-        //int[] game = session.addGame(9, 0.0); //vorläufig
         System.out.println(session.getGames());
 
         EventQueue.invokeLater(() -> {
@@ -34,6 +33,7 @@ public class Client {
             welcomeFrame.setVisible(true);
 
         });
+
         /*
         EventQueue.invokeLater(() -> {
             MainFrame mainFrame = new MainFrame();

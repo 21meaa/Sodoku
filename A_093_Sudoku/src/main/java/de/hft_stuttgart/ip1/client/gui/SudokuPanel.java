@@ -1,6 +1,7 @@
+
 package de.hft_stuttgart.ip1.client.gui;
 
-import de.hft_stuttgart.ip1.client.MainFrame;
+import de.hft_stuttgart.ip1.common.Session;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,24 +13,6 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
 import java.util.Objects;
 
-/**
- * Was sind die Zahlen in der Console?
- * Warum verschiebt sich das Sudoku irgenwie, es zeichnet ab gewissen cells nicht mehr richtig oder gar nicht
- * Einloggen und ausloggen funktioniert nicht?
- *
- * Wilkommen Frame:
- *  + Sudoku Überschrift,
- *  + hallo...,
- *  + Frage grid-size (button), dann frage dicfficulty (button),
- *  + wenn beides gefargt wurde -> rufe neues window auf
- * Spiel Frame:
- *  + je nach auswahl erzeuge neues sudoku-feld (heißt 3 unteschiedliche bauen?, weil 25x25 so lange dauert mit progressbar?)
- *  + per maus/tasten oder per buttons?
- *  + menubar: Menu = menu, menu += BackToWelcome,exit
-
- *              Menu = Zug beenden -> an spieler weitegeben ???
- */
-
 public class SudokuPanel extends JPanel {
     private int gridCount = 10;
     private int widthDivisor = 10;
@@ -40,14 +23,19 @@ public class SudokuPanel extends JPanel {
     private final JPanel parent;
     private int boxX = -1;
     private int boxY = -1;
-    private Character dataField[] = new Character[256];
+    private int dataField[];
+    private int sudSize;
+    private Session session;
 
-    public SudokuPanel(JPanel upperPane) {
+    public SudokuPanel(JPanel upperPane, int sudSize, Session session, int[] grid) {
         this.parent = upperPane;
+        this.sudSize = sudSize;
+        this.session = session;
+        dataField = grid;
         this.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent componentEvent) {
-                    computeSize();
+                computeSize();
             }
         });
         this.addMouseListener(new MouseAdapter() {
@@ -57,10 +45,10 @@ public class SudokuPanel extends JPanel {
                 Point point = e.getPoint();
                 boxX = boxY = -1;
                 outer:
-                for (int i = 0; i < (int) Math.sqrt(dataField.length); i++) {
-                    for (int j = 0; j < (int) Math.sqrt(dataField.length); j++) {
+                for (int i = 0; i < sudSize; i++) {
+                    for (int j = 0; j < sudSize; j++) {
                         if ( getX(i)<=point.x && getX(i+1)>point.x &&
-                            getY(j)<=point.y && getY(j+1)>point.y ) {
+                                getY(j)<=point.y && getY(j+1)>point.y ) {
                             boxX = i;
                             boxY = j;
                             break outer;
@@ -72,12 +60,6 @@ public class SudokuPanel extends JPanel {
         });
     }
 
-    public void generateSudoku(){
-        int squareRoot = (int) Math.sqrt(dataField.length);
-        for (int i = 0; i<dataField.length/squareRoot;i++){
-
-        }
-    }
     public void paintComponent(Graphics gc) {
         super.paintComponent(gc);
         if ( size == null ) {
@@ -91,20 +73,16 @@ public class SudokuPanel extends JPanel {
 
         Stroke thinStroke = new BasicStroke(1.0f);
         Stroke thickStroke = new BasicStroke(2.0f);
-        //Wichtig
-
-        for (int i=0; i<(int) Math.sqrt(dataField.length)+1; i++) {
-            g2d.setStroke(i%((int) Math.sqrt(Math.sqrt(dataField.length)))==0?thickStroke:thinStroke);
+        for (int i=0; i< sudSize + 1; i++) {
+            g2d.setStroke(i % Math.sqrt(sudSize) == 0?thickStroke:thinStroke);
             g2d.drawLine(getX(0), getY(i),
-                    getX((int) Math.sqrt(dataField.length)), getY(i));
+                    getX(sudSize), getY(i));
         }
-        //If 9x9 i<10
-        for (int i=0; i<(int) Math.sqrt(dataField.length)+1; i++) {
-            g2d.setStroke(i%((int) Math.sqrt(Math.sqrt(dataField.length)))==0?thickStroke:thinStroke);
+        for (int i=0; i< sudSize + 1; i++) {
+            g2d.setStroke(i % Math.sqrt(sudSize) == 0?thickStroke:thinStroke);
             g2d.drawLine(getX(i), getY(0),
-                    getX(i), getY((int) Math.sqrt(dataField.length)));
+                    getX(i), getY(sudSize));
         }
-
         if ( boxX != -1 && boxY != -1 ) {
             Rectangle rcBox = new Rectangle(getX(boxX)+2, getY(boxY)+2,
                     getX(1)-getX(0)-4, getY(1)-getY(0)-4);
@@ -113,10 +91,10 @@ public class SudokuPanel extends JPanel {
         }
 
         g2d.setFont(new Font("Arial", Font.BOLD, 16));
-        for (int y = 0; y < 9; y++) {
-            for (int x = 0; x < 9; x++) {
-                if ( dataField[9*y+x] != null) {
-                    String data = dataField[9*y+x].toString();
+        for (int y = 0; y < sudSize; y++) {
+            for (int x = 0; x < sudSize; x++) {
+                if ( dataField[sudSize*y+x] != 0) {
+                    String data = Integer.toString(dataField[sudSize * y + x]) ;
                     Rectangle rcBox = new Rectangle(getX(x)+2, getY(y)+2,
                             getX(1)-getX(0)-4, getY(1)-getY(0)-4);
                     Rectangle2D rcText = g2d.getFontMetrics().getStringBounds( data, g2d);
@@ -131,18 +109,16 @@ public class SudokuPanel extends JPanel {
     }
 
     public void setData(Character c) {
-
         if ( boxX != -1 && boxY != -1 ) {
-            if (Objects.equals(dataField[9*boxY+boxX], c) ) {
-                dataField[9 * boxY + boxX] = null;
+            if (Objects.equals(dataField[ sudSize * boxY+boxX], c) ) {
+                dataField[sudSize * boxY + boxX] = 0;
             }
             else {
-                dataField[9*boxY+boxX] = c;
+                dataField[ sudSize * boxY+boxX] = c;
             }
             repaint();
         }
     }
-
     private void computeSize() {
         size = getSize();
         startX = size.width/(widthDivisor+2);
@@ -152,25 +128,27 @@ public class SudokuPanel extends JPanel {
         startY = size.height/(heightDivisor-1)+(int)rcTitle.getHeight();
         g2d.dispose();
     }
-    //
-    private int getX(int i) {
-        if (dataField.length==81){
+
+
+       private int getX(int i) {
+        if (dataField.length == 81){
             return startX+i*size.width/11;
         } else if (dataField.length==256){
             return startX+i*size.width/20;
         } else {
-           return startX+i*size.width/11;
+            return startX+i*size.width/30;
         }
 
     }
 
     private int getY(int i) {
-        if (dataField.length==81){
+        if (dataField.length == 81){
             return startX+i*size.width/12;
-        } else if (dataField.length==256){
+        } else if (dataField.length == 256){
             return startX+i*size.width/26;
         } else {
-            return startX+i*size.width/12;
+            return startX+i*size.width/30;
         }
     }
+
 }
