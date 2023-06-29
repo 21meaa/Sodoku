@@ -1,15 +1,16 @@
 
-MUST HAVE
+Aufgaben Liste - Was noch zu tun ist
 
--Programm verstehen -Alle
--2 Menü Punkte, Schwierigkeit und Grösse unter Menü
--SudokuSpiel Überarbeiten -Aaron
--Sudoku in der GUI anzeigen. -Aaron
+* clean Code / Code aufräumen (was wird nicht mehr benötigt)
+* Sudoku-Feld in Panel der GUI in GameFrame einbinden
+* SudokuGame in Sudoku-Feld einfügen
+* Buttons ihre Aktionen zuteilen
+* Sudoku in GUI auf Korrektheit prüfen/ist die lösung korrekt?/nach jeder eingesetzten Zahl prüfen?
+* Funktion einfügen?: wenn spiel beendet wird (Also wenn die Frames down sind)
+                      -> alle anderen Fenster und Sessions? schließen
 
+* Fehlt noch etwas / noch etwas vergessen ???
+
+//Nicht mehr wichtig
 -Multiplayer Spieler (-Client über GUI Starten.)
 
-NICE TO HAVE
-
--Schönes Menü.
-
-//Hallo von Lisa

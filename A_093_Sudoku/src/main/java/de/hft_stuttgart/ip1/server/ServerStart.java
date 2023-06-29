@@ -13,7 +13,7 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class ServerStart{
 
-    public int size; //Delete?
+    public int size;
     public static void main(String args[]) throws RemoteException{
 
         String name = StudentName.getStudentName(); //Holt Studenten

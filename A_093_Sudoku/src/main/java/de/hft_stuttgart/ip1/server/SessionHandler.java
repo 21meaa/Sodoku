@@ -29,8 +29,6 @@ public class SessionHandler implements Session {
         return sudoku.getGrid();
     }
 
-    //Verbinden: in Panel session.addGame(size, difficulty);
-
     @Override
     public String getGames() throws RemoteException {
         return allSudokus.toString();

@@ -17,11 +17,8 @@ public class Sudoku implements GenerateSudoku {
     private double difficulty;
 
     public static void main(String[] args) throws RemoteException {
-        /**
-         * Sollte man dies nicht individuell ändern können? Wie steuert man difficulty?
-         * Schwierigeitsgrade: 0.4, 0.6, 0.8
-         */
-        Sudoku s = new Sudoku(9, 0.6); //True nicht gut
+
+        Sudoku s = new Sudoku(9, 0.6); //false = nicht gut
         System.out.println(s.solutions(s.sym, s.grid));
         s.ausgabe(s.grid);
     }

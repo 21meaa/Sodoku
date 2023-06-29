@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b3f2511-23b1-4ec6-85f5-9e3e0bd9e6c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/RoundedBorder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SpielFrame.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SpielFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/WelcomeFrame.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/WelcomeFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/MainFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/MainFrame.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SudokuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SudokuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/RoundedBorder.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/RoundedBorder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SpielFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/GameFrame.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/SpielFrame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/WelcomeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui/WelcomeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Aufgaben.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/ServerStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/ServerStart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/SessionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/SessionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Sudoku.java" beforeDir="false" afterPath="$PROJECT_DIR$/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/server/Sudoku.java" afterDir="false" />
@@ -66,23 +64,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "297",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/lisak/IdeaProjects/Sodoku/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;297&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lisak/IdeaProjects/Sodoku/A_093_Sudoku/src/main/java/de/hft_stuttgart/ip1/client/gui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\lisak\IdeaProjects\Sodoku\A_093_Sudoku\src\main\java\de\hft_stuttgart\ip1\client\gui" />
@@ -267,7 +265,8 @@
       <workItem from="1687876342563" duration="7841000" />
       <workItem from="1687942761393" duration="19000" />
       <workItem from="1687944244702" duration="600000" />
-      <workItem from="1687947520999" duration="15386000" />
+      <workItem from="1687947520999" duration="17351000" />
+      <workItem from="1688030040671" duration="2852000" />
     </task>
     <task id="LOCAL-00001">
       <created>1678964800653</created>
@@ -416,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687804751977</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="GUI&#10;WelcpmeFrame und SpielFrame hinzugefuegt&#10;&#10;Viele Kommentare">
+      <created>1687969093216</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1687969093216</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +434,8 @@
     <MESSAGE value="25x25 Sodoku wird generiert ... aber geht eventuell noch in eine Endlosschleife" />
     <MESSAGE value="Sodoku &#10;Objekt wird erstellt von Server -&gt; getGrid gibt eindimensionales Array zurück" />
     <MESSAGE value="Sodoku &#10;es sind nurnoch einzig artige Lösungen möglich" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sodoku &#10;es sind nurnoch einzig artige Lösungen möglich" />
+    <MESSAGE value="GUI&#10;WelcpmeFrame und SpielFrame hinzugefuegt&#10;&#10;Viele Kommentare" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI&#10;WelcpmeFrame und SpielFrame hinzugefuegt&#10;&#10;Viele Kommentare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

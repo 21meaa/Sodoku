@@ -1,11 +1,7 @@
 package de.hft_stuttgart.ip1.client.gui;
 
-import de.hft_stuttgart.ip1.common.Session;
-
 import javax.swing.*;
 import java.awt.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class WelcomeFrame extends JFrame {
 
@@ -15,41 +11,44 @@ public class WelcomeFrame extends JFrame {
     private JButton btn16x16;
     private JButton btn25x25;
     private JButton btn9x9;
+    private JComboBox comboBox;
+    private JLabel lblWhichDifficulty;
 
-    private static Session session;
-
-    /*
-     * Starte Game -> wird in Client aufgerufen und geöffnet
-     * Main aktuell nur zum testen, später wegmachen
-     * COmboBox für Schwierigkeit einbauen, für alle drei größen
-     */
+    //Starte Game -> wird in Client aufgerufen und geoeffnet
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             WelcomeFrame frame = new WelcomeFrame();
             frame.setVisible(true);
             frame.setResizable(false); //verhindert größenveränderung des Fensters
+            if (frame.isActive() == false) {
+                /**
+                 * Alle Sessions etc disposen, wenn beide Frames down sind !?
+                 * */
+            }
         });
     }
 
     public WelcomeFrame() throws HeadlessException {
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Sudoku Game");
-        this.setMinimumSize(new Dimension(490, 220));
+        this.setMinimumSize(new Dimension(490, 250));
 
-        //Define Panel in Frame
+        //Definiere das Main-Panel
         windowPanel = new JPanel();
         windowPanel.setBackground(new Color(0x220456));
-        windowPanel.setPreferredSize(new Dimension(490, 220));
-        getContentPane().add(windowPanel);
+        windowPanel.setPreferredSize(new Dimension(490, 250));
+        this.setContentPane(windowPanel);
 
         placeLabels();
         placeButtons();
-        defineLayout();
     }
 
     private void placeLabels() {
+
         //Label Welcome
         labelHeading = new JLabel("~ Wilkommen bei Sudoku ~");
+        labelHeading.setBounds(41, 17, 393, 34);
         labelHeading.setHorizontalAlignment(SwingConstants.CENTER);
         labelHeading.setForeground(Color.white);
         //labelHeading.setBackground(new Color(0x4B19A2));
@@ -57,90 +56,90 @@ public class WelcomeFrame extends JFrame {
 
         //Label Frage
         labelQuestion = new JLabel("Welche Variante des Spiels möchten Sie starten?");
+        labelQuestion.setBounds(41, 57, 393, 45);
         labelQuestion.setHorizontalAlignment(SwingConstants.CENTER);
         labelQuestion.setForeground(Color.white);
         labelQuestion.setFont(new Font("Tahoma", Font.PLAIN, 13));
     }
 
     private void placeButtons() {
-        //Button 16x16
+
+        //Button fuer Size 16x16
         btn16x16 = new JButton("16x16");
+        btn16x16.setBounds(190, 120, 89, 31);
         btn16x16.setForeground(Color.white);
         btn16x16.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btn16x16.setFocusPainted(false);
         btn16x16.setBorder(new RoundedBorder(10));
         btn16x16.setBackground(new Color(0x4B19A2));
         btn16x16.addActionListener(e -> {
-
+            /**
+             * Size und Difficulty bestimmen, addGame irgendwie aufrufen
+             * Schwierigeitsgrade: 0.4, 0.6, 0.8,
+             * -> wenn Button gedrückt, frage nach Position/Nummer in ComboBox um Schwierigkeitsgrad zu bekommen
+             */
+            new GameFrame().setVisible(true);
+            this.dispose();
         });
 
-        //Button 25x25
+        //Button fuer Size 25x25
         btn25x25 = new JButton("25x25");
+        btn25x25.setBounds(331, 120, 89, 31);
         btn25x25.setForeground(Color.WHITE);
         btn25x25.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btn25x25.setFocusPainted(false);
         btn25x25.setBorder(new RoundedBorder(10));
         btn25x25.setBackground(new Color(75, 25, 162));
         btn25x25.addActionListener(e -> {
-
+            /**
+             * Size und Difficulty bestimmen, addGame irgendwie aufrufen
+             * Schwierigeitsgrade: 0.4, 0.6, 0.8,
+             * -> wenn Button gedrückt, frage nach Position/Nummer in ComboBox um Schwierigkeitsgrad zu bekommen
+             */
+            new GameFrame().setVisible(true);
+            this.dispose();
         });
 
-        //Button 9x9
+        //Button fuer Size 9x9
         btn9x9 = new JButton("9x9");
+        btn9x9.setBounds(55, 120, 89, 31);
         btn9x9.setForeground(Color.WHITE);
         btn9x9.setFont(new Font("Tahoma", Font.PLAIN, 16));
         btn9x9.setFocusPainted(false);
         btn9x9.setBorder(new RoundedBorder(10));
         btn9x9.setBackground(new Color(75, 25, 162));
         btn9x9.addActionListener(e -> {
-
+            /**
+             * Size und Difficulty bestimmen, addGame irgendwie aufrufen
+             * Schwierigeitsgrade: 0.4, 0.6, 0.8,
+             * -> wenn Button gedrückt, frage nach Position/Nummer in ComboBox um Schwierigkeitsgrad zu bekommen
+             */
+            new GameFrame().setVisible(true);
+            this.dispose();
         });
 
-//        btn9x9.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                wantedType = SudokuPuzzleType.NINEBYNINE;
-//                System.out.println("9x9");
-//                new SudokuFrame().setVisible(true);
-//            }
-//        });
+        //Label Difficulty
+        lblWhichDifficulty = new JLabel("Difficulty: ");
+        lblWhichDifficulty.setBounds(134, 169, 89, 22);
+        lblWhichDifficulty.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        lblWhichDifficulty.setForeground(Color.white);
 
-    }
+        //ComboBox zur Auswahl der Difficulty
+        comboBox = new JComboBox();
+        comboBox.setBackground(new Color(0x4B19A2));
+        comboBox.setFont(new Font("Tahoma", Font.PLAIN, 13));
+        comboBox.setForeground(Color.white);
+        comboBox.setModel(new DefaultComboBoxModel(new String[]{"Easy", "Medium", "Hard"}));
+        comboBox.setBounds(233, 171, 101, 21);
 
-    private void defineLayout() {
-
-        GroupLayout gl_windowPanel = new GroupLayout(windowPanel);
-        gl_windowPanel.setHorizontalGroup(
-                gl_windowPanel.createParallelGroup(Alignment.LEADING)
-                        .addGroup(gl_windowPanel.createSequentialGroup()
-                                .addGroup(gl_windowPanel.createParallelGroup(Alignment.LEADING)
-                                        .addGroup(gl_windowPanel.createSequentialGroup()
-                                                .addGap(41)
-                                                .addGroup(gl_windowPanel.createParallelGroup(Alignment.TRAILING)
-                                                        .addComponent(labelQuestion, GroupLayout.PREFERRED_SIZE, 393, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(labelHeading, GroupLayout.PREFERRED_SIZE, 393, GroupLayout.PREFERRED_SIZE)))
-                                        .addGroup(gl_windowPanel.createSequentialGroup()
-                                                .addGap(55)
-                                                .addComponent(btn9x9, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-                                                .addGap(46)
-                                                .addComponent(btn16x16, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
-                                                .addGap(52)
-                                                .addComponent(btn25x25, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        gl_windowPanel.setVerticalGroup(
-                gl_windowPanel.createParallelGroup(Alignment.LEADING)
-                        .addGroup(gl_windowPanel.createSequentialGroup()
-                                .addGap(17)
-                                .addComponent(labelHeading, GroupLayout.PREFERRED_SIZE, 34, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(ComponentPlacement.RELATED)
-                                .addComponent(labelQuestion, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-                                .addGap(18)
-                                .addGroup(gl_windowPanel.createParallelGroup(Alignment.LEADING)
-                                        .addComponent(btn16x16, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btn25x25, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(btn9x9, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
-                                .addGap(62))
-        );
-        windowPanel.setLayout(gl_windowPanel);
+        //Fuegt alle Components in das Main-Panel ein
+        windowPanel.setLayout(null); //Ist auf Absolute Layout
+        windowPanel.add(labelQuestion);
+        windowPanel.add(labelHeading);
+        windowPanel.add(btn9x9);
+        windowPanel.add(btn16x16);
+        windowPanel.add(btn25x25);
+        windowPanel.add(lblWhichDifficulty);
+        windowPanel.add(comboBox);
     }
 }
