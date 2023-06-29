@@ -14,10 +14,6 @@ public class SessionHandler implements Session {
     }
 
     //allSudoku geht nicht vom client aus
-    @Override
-    public List<Sudoku> allSudokus() throws RemoteException {
-        return allSudokus;
-    }
 
     /**
      * Wo wird das aufgerufen, bzw wie übergibt man size und difficulty?
@@ -32,6 +28,25 @@ public class SessionHandler implements Session {
     @Override
     public String getGames() throws RemoteException {
         return allSudokus.toString();
+    }
+
+    @Override
+    public boolean isSolution(int[] gridPlayer) throws RemoteException{
+
+        int[] solution = allSudokus.get(0).getSol();
+
+        for (int i = 0; i < solution.length; i++){
+            if(solution[i] != gridPlayer[i] && gridPlayer[i] != 0){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public void cleanGames() throws RemoteException{
+        allSudokus.clear();
     }
 
     /**

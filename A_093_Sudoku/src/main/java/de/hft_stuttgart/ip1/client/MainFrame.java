@@ -70,31 +70,31 @@ public class MainFrame extends JFrame {
         menu.add(new JSeparator());
         menu.add(new ExitAction(MainFrame.this));
         menuBar.add(new JMenuItem(new DirectAction(MainFrame.this)));
-        a1Button.setAction(new ButtonAction('1'));
-        a2Button.setAction(new ButtonAction('2'));
-        a3Button.setAction(new ButtonAction('3'));
-        a4Button.setAction(new ButtonAction('4'));
-        a5Button.setAction(new ButtonAction('5'));
-        a6Button.setAction(new ButtonAction('6'));
-        a7Button.setAction(new ButtonAction('7'));
-        a8Button.setAction(new ButtonAction('8'));
-        a9Button.setAction(new ButtonAction('9'));
-        button1.setAction(new ButtonAction('a'));
-        button2.setAction(new ButtonAction('b'));
-        button3.setAction(new ButtonAction('c'));
-        button4.setAction(new ButtonAction('d'));
-        button5.setAction(new ButtonAction('e'));
-        button6.setAction(new ButtonAction('f'));
-        button7.setAction(new ButtonAction('g'));
-        button8.setAction(new ButtonAction('h'));
-        button9.setAction(new ButtonAction('i'));
-        button10.setAction(new ButtonAction('j'));
-        button11.setAction(new ButtonAction('k'));
-        button12.setAction(new ButtonAction('l'));
-        button13.setAction(new ButtonAction('m'));
-        button14.setAction(new ButtonAction('n'));
-        button15.setAction(new ButtonAction('o'));
-        button16.setAction(new ButtonAction('p'));
+        a1Button.setAction(new ButtonAction(1));
+        a2Button.setAction(new ButtonAction(2));
+        a3Button.setAction(new ButtonAction(3));
+        a4Button.setAction(new ButtonAction(4));
+        a5Button.setAction(new ButtonAction(5));
+        a6Button.setAction(new ButtonAction(6));
+        a7Button.setAction(new ButtonAction(7));
+        a8Button.setAction(new ButtonAction(8));
+        a9Button.setAction(new ButtonAction(9));
+        button1.setAction(new ButtonAction(10));
+        button2.setAction(new ButtonAction(11));
+        button3.setAction(new ButtonAction(12));
+        button4.setAction(new ButtonAction(13));
+        button5.setAction(new ButtonAction(14));
+        button6.setAction(new ButtonAction(15));
+        button7.setAction(new ButtonAction(16));
+        button8.setAction(new ButtonAction(17));
+        button9.setAction(new ButtonAction(18));
+        button10.setAction(new ButtonAction(19));
+        button11.setAction(new ButtonAction(20));
+        button12.setAction(new ButtonAction(21));
+        button13.setAction(new ButtonAction(22));
+        button14.setAction(new ButtonAction(23));
+        button15.setAction(new ButtonAction(24));
+        button16.setAction(new ButtonAction(25));
 
         System.out.println(session.getGames());
 
@@ -156,65 +156,65 @@ public class MainFrame extends JFrame {
         lowerPane.add(button1);
 
         button2 = new JButton();
-        button1.setText("b");
-        lowerPane.add(button1);
+        button2.setText("b");
+        lowerPane.add(button2);
 
         button3 = new JButton();
-        button1.setText("c");
-        lowerPane.add(button1);
+        button3.setText("c");
+        lowerPane.add(button3);
 
         button4 = new JButton();
-        button1.setText("d");
-        lowerPane.add(button1);
+        button4.setText("d");
+        lowerPane.add(button4);
 
         button5 = new JButton();
-        button1.setText("e");
-        lowerPane.add(button1);
+        button5.setText("e");
+        lowerPane.add(button5);
 
         button6 = new JButton();
-        button1.setText("f");
-        lowerPane.add(button1);
+        button6.setText("f");
+        lowerPane.add(button6);
 
         button7 = new JButton();
-        button1.setText("g");
-        lowerPane.add(button1);
+        button7.setText("g");
+        lowerPane.add(button7);
 
         button8 = new JButton();
-        button1.setText("h");
-        lowerPane.add(button1);
+        button8.setText("h");
+        lowerPane.add(button8);
 
         button9 = new JButton();
-        button1.setText("g");
-        lowerPane.add(button1);
+        button9.setText("i");
+        lowerPane.add(button9);
 
         button10 = new JButton();
-        button1.setText("h");
-        lowerPane.add(button1);
+        button10.setText("j");
+        lowerPane.add(button10);
 
         button11 = new JButton();
-        button1.setText("i");
-        lowerPane.add(button1);
+        button11.setText("k");
+        lowerPane.add(button11);
 
 
         button12 = new JButton();
-        button1.setText("j");
-        lowerPane.add(button1);
+        button12.setText("l");
+        lowerPane.add(button12);
 
         button13 = new JButton();
-        button1.setText("k");
-        lowerPane.add(button1);
+        button13.setText("m");
+        lowerPane.add(button13);
 
         button14 = new JButton();
-        button1.setText("l");
-        lowerPane.add(button1);
+        button14.setText("n");
+        lowerPane.add(button14);
 
         button15 = new JButton();
-        button1.setText("m");
-        lowerPane.add(button1);
+        button15.setText("o");
+        lowerPane.add(button15);
 
         button16 = new JButton();
-        button1.setText("n");
-        lowerPane.add(button1);
+        button16.setText("p");
+        lowerPane.add(button16);
 
     }
 
@@ -232,16 +232,20 @@ public class MainFrame extends JFrame {
     }
 
     private class ButtonAction extends AbstractAction {
-        private final Character c;
+        private final int c;
 
-        public ButtonAction(Character c) {
-            this.c = c;
-            this.putValue(Action.NAME, c.toString());
+        public ButtonAction(int value) {
+
+            this.c = value;
         }
 
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            ((SudokuPanel) sudokuPanel).setData(c);
+            try {
+                ((SudokuPanel) sudokuPanel).setData(c);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

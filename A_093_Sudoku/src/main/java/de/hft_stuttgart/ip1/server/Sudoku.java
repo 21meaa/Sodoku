@@ -16,12 +16,6 @@ public class Sudoku implements GenerateSudoku {
     private boolean solutions = false;
     private double difficulty;
 
-    public static void main(String[] args) throws RemoteException {
-
-        Sudoku s = new Sudoku(9, 0.6); //false = nicht gut
-        System.out.println(s.solutions(s.sym, s.grid));
-        s.ausgabe(s.grid);
-    }
 
     @Override
     public void ausgabe(int[][] grid) throws RemoteException {
@@ -200,6 +194,18 @@ public class Sudoku implements GenerateSudoku {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 ret[counter] = grid[i][j];
+                counter++;
+            }
+        }
+        return ret;
+    }
+    public int[] getSol() throws RemoteException {
+
+        int counter = 0;
+        int[] ret = new int[size * size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                ret[counter] = solution[i][j];
                 counter++;
             }
         }

@@ -11,6 +11,7 @@ import java.awt.event.ComponentListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Rectangle2D;
+import java.rmi.RemoteException;
 import java.util.Objects;
 
 public class SudokuPanel extends JPanel {
@@ -108,13 +109,19 @@ public class SudokuPanel extends JPanel {
 
     }
 
-    public void setData(Character c) {
+    public void setData(int c) throws RemoteException {
         if ( boxX != -1 && boxY != -1 ) {
             if (Objects.equals(dataField[ sudSize * boxY+boxX], c) ) {
                 dataField[sudSize * boxY + boxX] = 0;
+
             }
             else {
                 dataField[ sudSize * boxY+boxX] = c;
+                if (!session.isSolution(dataField)){
+                    dataField[ sudSize * boxY+boxX] = 0;
+                }
+
+
             }
             repaint();
         }
@@ -148,6 +155,17 @@ public class SudokuPanel extends JPanel {
             return startX+i*size.width/26;
         } else {
             return startX+i*size.width/30;
+        }
+    }
+    private String getSymbol(int value) {
+
+        if (value == 0) {
+            return " ";
+        } else if (value < 10) {
+            return String.valueOf(value);
+        } else {
+            char symbol = (char) ('A' + value - 10);
+            return String.valueOf(symbol);
         }
     }
 

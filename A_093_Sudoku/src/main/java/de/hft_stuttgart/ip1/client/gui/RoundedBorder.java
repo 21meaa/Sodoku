@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Insets;
 import javax.swing.border.Border;
 
-/** Klasse ermoeglicht es, die Buttons in WelcomeFrame und GameFrame abzurunden */
+/** Klasse ermoeglicht es, die Buttons in WelcomeFrame abzurunden */
 
 class RoundedBorder implements Border {
 
