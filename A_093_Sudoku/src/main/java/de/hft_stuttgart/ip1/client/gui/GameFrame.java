@@ -20,6 +20,7 @@ import java.awt.Font;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import javax.swing.JButton;
+import de.hft_stuttgart.ip1.client.gui.SudokuPanel;
 
 public class GameFrame extends JFrame {
 
@@ -30,6 +31,7 @@ public class GameFrame extends JFrame {
     private JMenuItem mn_it_Exit;
 
     private JPanel panelGameField;
+    private SudokuPanel_1 sPanel;
 
     private JPanel panelButtons;
     private JButton btn1;
@@ -59,11 +61,12 @@ public class GameFrame extends JFrame {
     private JButton btn25;
     private int[] grid;
     private Session session;
+    private int size;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
             try {
-                GameFrame frame = new GameFrame(null, null);
+                GameFrame frame = new GameFrame(null, null, 0);
                 frame.setVisible(true);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -71,8 +74,8 @@ public class GameFrame extends JFrame {
         });
     }
 
-    public GameFrame(int [] grid,  Session session) throws HeadlessException, RemoteException{
-
+    public GameFrame(int [] grid, Session session, int size) throws HeadlessException, RemoteException{
+        this.size = size;
         this.grid = grid;
         this.session = session;
         this.setResizable(false); //verhindert groeßenveraenderung des Fensters
@@ -154,6 +157,22 @@ public class GameFrame extends JFrame {
 
         /**
          * Actions für alle Buttons einfügen
+         * Hiermiet?:
+         *      a1Button.setAction(new ButtonAction('1'));
+         *
+         *      private class ButtonAction extends AbstractAction {
+         *         private final Character c;
+         *
+         *         public ButtonAction(Character c) {
+         *             this.c = c;
+         *             this.putValue(Action.NAME, c.toString());
+         *         }
+         *
+         *         @Override
+         *         public void actionPerformed(ActionEvent actionEvent) {
+         *             ((SudokuPanel) sudokuPanel).setData(c);
+         *         }
+         *     }
          */
 
         btn2 = new JButton("2");
@@ -289,7 +308,13 @@ public class GameFrame extends JFrame {
     //Spielfeld mit Sudoku-Feld drinnen
     private void placeGameField() {
         panelGameField = new JPanel();
-        panelGameField.setBounds(31, 10, 825, 535);
+        panelGameField.setBounds(31, 23, 825, 510);
+        panelGameField.setBackground(new Color(0x220456));
+
+        //Setzte Klasse SudokuPanel als windowPanel
+        sPanel = new SudokuPanel_1(grid, size);
+        panelGameField.add(sPanel);
+        windowPanel.add(panelGameField);
 
         /**
          * Sudoku-Fela hier einfügen

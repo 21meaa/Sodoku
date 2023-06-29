@@ -108,7 +108,7 @@ public class WelcomeFrame extends JFrame {
              */
             createGame();
             try {
-                new GameFrame(grid, session).setVisible(true);
+                new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
@@ -132,7 +132,7 @@ public class WelcomeFrame extends JFrame {
              */
             createGame();
             try {
-                new GameFrame(grid, session).setVisible(true);
+                new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
@@ -157,7 +157,7 @@ public class WelcomeFrame extends JFrame {
              */
             createGame();
             try {
-                new GameFrame(grid, session).setVisible(true);
+                new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
