@@ -28,11 +28,12 @@ public class SudokuPanel extends JPanel {
     private int sudSize;
     private Session session;
 
-    public SudokuPanel(JPanel upperPane, int sudSize, Session session, int[] grid) {
+    public SudokuPanel(JPanel upperPane, int sudSize, Session session, int[] gridSod) {
         this.parent = upperPane;
         this.sudSize = sudSize;
         this.session = session;
-        dataField = grid;
+        dataField = gridSod;
+
         this.addComponentListener(new ComponentAdapter() {
             @Override
             public void componentResized(ComponentEvent componentEvent) {
@@ -95,7 +96,8 @@ public class SudokuPanel extends JPanel {
         for (int y = 0; y < sudSize; y++) {
             for (int x = 0; x < sudSize; x++) {
                 if ( dataField[sudSize*y+x] != 0) {
-                    String data = Integer.toString(dataField[sudSize * y + x]) ;
+                    //String data = Integer.toString(dataField[sudSize * y + x]) ;
+                    String data = getSymbol(dataField[sudSize*y + x]);
                     Rectangle rcBox = new Rectangle(getX(x)+2, getY(y)+2,
                             getX(1)-getX(0)-4, getY(1)-getY(0)-4);
                     Rectangle2D rcText = g2d.getFontMetrics().getStringBounds( data, g2d);
@@ -109,7 +111,9 @@ public class SudokuPanel extends JPanel {
 
     }
 
-    public void setData(int c) throws RemoteException {
+    public void setData(Character character) throws RemoteException {
+        int c = getValue(character);
+        System.out.println(c);
         if ( boxX != -1 && boxY != -1 ) {
             if (Objects.equals(dataField[ sudSize * boxY+boxX], c) ) {
                 dataField[sudSize * boxY + boxX] = 0;
@@ -164,9 +168,17 @@ public class SudokuPanel extends JPanel {
         } else if (value < 10) {
             return String.valueOf(value);
         } else {
-            char symbol = (char) ('A' + value - 10);
+            char symbol = (char) ('a' + value - 10);
             return String.valueOf(symbol);
         }
     }
 
+    private int getValue(Character character){
+
+        if(character > '0' && character <= '9'){
+            return Integer.parseUnsignedInt(String.valueOf(character));
+        }else {
+            return Integer.parseUnsignedInt(String.valueOf(character - 87));
+        }
+    }
 }

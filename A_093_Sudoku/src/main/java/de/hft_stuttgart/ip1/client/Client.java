@@ -14,12 +14,7 @@ import java.rmi.registry.Registry;
 
 public class Client {
     public static void main(String args[]) throws RemoteException, NotBoundException {
-        String name = StudentName.getStudentName();
-        int port = Students.getPort(name);
-        Registry registry = LocateRegistry.getRegistry(port);
-        Session session = (Session) registry.lookup(Session.class.getName());
 
-        System.out.println(session.getGames());
 
         EventQueue.invokeLater(() -> {
             WelcomeFrame welcomeFrame = null;

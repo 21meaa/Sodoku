@@ -13,9 +13,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.rmi.RemoteException;
 
-
 public class MainFrame extends JFrame {
-
+    private Session session;
+    private int[] grid;
+    private int sizeSud;
     private JPanel contentPane;
     private JButton a1Button;
     private JButton a2Button;
@@ -26,36 +27,31 @@ public class MainFrame extends JFrame {
     private JButton a7Button;
     private JButton a8Button;
     private JButton a9Button;
-
-
     private JPanel sudokuPanel;
     private JPanel upperPane;
     private JPanel lowerPane;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton button6;
-    private JButton button7;
-    private JButton button8;
-    private JButton button9;
-    private JButton button10;
-    private JButton button11;
-    private JButton button12;
-    private JButton button13;
-    private JButton button14;
-    private JButton button15;
-    private JButton button16;
+    private JButton a10Button;
+    private JButton a11Button;
+    private JButton a12Button;
+    private JButton a13Button;
+    private JButton a14Button;
+    private JButton a15Button;
+    private JButton a16Button;
+    private JButton a17Button;
+    private JButton a18Button;
+    private JButton a19Button;
+    private JButton a20Button;
+    private JButton a21Button;
+    private JButton a22Button;
+    private JButton a23Button;
+    private JButton a24Button;
+    private JButton a25Button;
 
+    public MainFrame(Session session, int sizeSud, int[] grid) throws RemoteException {
 
-    private int[] grid;
-    private Session session;
-    private int sudSize;
-    public MainFrame(Session session, int sudSize, int[] grid) throws RemoteException {
         this.session = session;
         this.grid = grid;
-        this.sudSize = sudSize;
+        this.sizeSud = sizeSud;
         $$$setupUI$$$();
         setContentPane($$$getRootComponent$$$());
         pack();
@@ -63,40 +59,38 @@ public class MainFrame extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
         // NOI18N
-        JMenu menu = new JMenu("Menu");
+        JMenu menu = new JMenu("Datei");
         menuBar.add(menu);
         menu.add(new LoginAction(MainFrame.this));
         menu.add(new LogoutAction(MainFrame.this));
         menu.add(new JSeparator());
-        menu.add(new ExitAction(MainFrame.this));
+        menu.add(new ExitAction(MainFrame.this, session));
         menuBar.add(new JMenuItem(new DirectAction(MainFrame.this)));
-        a1Button.setAction(new ButtonAction(1));
-        a2Button.setAction(new ButtonAction(2));
-        a3Button.setAction(new ButtonAction(3));
-        a4Button.setAction(new ButtonAction(4));
-        a5Button.setAction(new ButtonAction(5));
-        a6Button.setAction(new ButtonAction(6));
-        a7Button.setAction(new ButtonAction(7));
-        a8Button.setAction(new ButtonAction(8));
-        a9Button.setAction(new ButtonAction(9));
-        button1.setAction(new ButtonAction(10));
-        button2.setAction(new ButtonAction(11));
-        button3.setAction(new ButtonAction(12));
-        button4.setAction(new ButtonAction(13));
-        button5.setAction(new ButtonAction(14));
-        button6.setAction(new ButtonAction(15));
-        button7.setAction(new ButtonAction(16));
-        button8.setAction(new ButtonAction(17));
-        button9.setAction(new ButtonAction(18));
-        button10.setAction(new ButtonAction(19));
-        button11.setAction(new ButtonAction(20));
-        button12.setAction(new ButtonAction(21));
-        button13.setAction(new ButtonAction(22));
-        button14.setAction(new ButtonAction(23));
-        button15.setAction(new ButtonAction(24));
-        button16.setAction(new ButtonAction(25));
-
-        System.out.println(session.getGames());
+        a1Button.setAction(new ButtonAction('1'));
+        a2Button.setAction(new ButtonAction('2'));
+        a3Button.setAction(new ButtonAction('3'));
+        a4Button.setAction(new ButtonAction('4'));
+        a5Button.setAction(new ButtonAction('5'));
+        a6Button.setAction(new ButtonAction('6'));
+        a7Button.setAction(new ButtonAction('7'));
+        a8Button.setAction(new ButtonAction('8'));
+        a9Button.setAction(new ButtonAction('9'));
+        a10Button.setAction(new ButtonAction('a'));
+        a11Button.setAction(new ButtonAction('b'));
+        a12Button.setAction(new ButtonAction('c'));
+        a13Button.setAction(new ButtonAction('d'));
+        a14Button.setAction(new ButtonAction('e'));
+        a15Button.setAction(new ButtonAction('f'));
+        a16Button.setAction(new ButtonAction('h'));
+        a17Button.setAction(new ButtonAction('h'));
+        a18Button.setAction(new ButtonAction('i'));
+        a19Button.setAction(new ButtonAction('j'));
+        a20Button.setAction(new ButtonAction('k'));
+        a21Button.setAction(new ButtonAction('l'));
+        a22Button.setAction(new ButtonAction('m'));
+        a23Button.setAction(new ButtonAction('n'));
+        a24Button.setAction(new ButtonAction('o'));
+        a25Button.setAction(new ButtonAction('p'));
 
     }
 
@@ -150,72 +144,6 @@ public class MainFrame extends JFrame {
         a9Button = new JButton();
         a9Button.setText("9");
         lowerPane.add(a9Button, new com.intellij.uiDesigner.core.GridConstraints(0, 8, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_HORIZONTAL, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-
-        button1 = new JButton();
-        button1.setText("a");
-        lowerPane.add(button1);
-
-        button2 = new JButton();
-        button2.setText("b");
-        lowerPane.add(button2);
-
-        button3 = new JButton();
-        button3.setText("c");
-        lowerPane.add(button3);
-
-        button4 = new JButton();
-        button4.setText("d");
-        lowerPane.add(button4);
-
-        button5 = new JButton();
-        button5.setText("e");
-        lowerPane.add(button5);
-
-        button6 = new JButton();
-        button6.setText("f");
-        lowerPane.add(button6);
-
-        button7 = new JButton();
-        button7.setText("g");
-        lowerPane.add(button7);
-
-        button8 = new JButton();
-        button8.setText("h");
-        lowerPane.add(button8);
-
-        button9 = new JButton();
-        button9.setText("i");
-        lowerPane.add(button9);
-
-        button10 = new JButton();
-        button10.setText("j");
-        lowerPane.add(button10);
-
-        button11 = new JButton();
-        button11.setText("k");
-        lowerPane.add(button11);
-
-
-        button12 = new JButton();
-        button12.setText("l");
-        lowerPane.add(button12);
-
-        button13 = new JButton();
-        button13.setText("m");
-        lowerPane.add(button13);
-
-        button14 = new JButton();
-        button14.setText("n");
-        lowerPane.add(button14);
-
-        button15 = new JButton();
-        button15.setText("o");
-        lowerPane.add(button15);
-
-        button16 = new JButton();
-        button16.setText("p");
-        lowerPane.add(button16);
-
     }
 
     /**
@@ -226,17 +154,17 @@ public class MainFrame extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code her
+        // TODO: place custom component creation code hereS
+        sudokuPanel = new SudokuPanel(upperPane, this.sizeSud ,this.session, this.grid);
 
-        sudokuPanel = new SudokuPanel(upperPane, sudSize, session, grid);
     }
 
     private class ButtonAction extends AbstractAction {
-        private final int c;
+        private final Character c;
 
-        public ButtonAction(int value) {
-
-            this.c = value;
+        public ButtonAction(Character c) {
+            this.c = c;
+            this.putValue(Action.NAME, c.toString());
         }
 
         @Override
@@ -248,4 +176,6 @@ public class MainFrame extends JFrame {
             }
         }
     }
+
+
 }

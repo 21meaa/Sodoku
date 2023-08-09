@@ -58,6 +58,7 @@ public class WelcomeFrame extends JFrame {
     public WelcomeFrame() throws HeadlessException, RemoteException, NotBoundException {
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         this.setTitle("Sudoku Game");
         this.setMinimumSize(new Dimension(490, 250));
 
@@ -110,7 +111,6 @@ public class WelcomeFrame extends JFrame {
             createGame();
             try {
                 new MainFrame(session, size, grid).setVisible(true);
-                //new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
@@ -135,7 +135,6 @@ public class WelcomeFrame extends JFrame {
             createGame();
             try {
                 new MainFrame(session, size, grid).setVisible(true);
-                //new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
@@ -161,7 +160,6 @@ public class WelcomeFrame extends JFrame {
             createGame();
             try {
                 new MainFrame(session, size, grid).setVisible(true);
-                //new GameFrame(grid, session, size).setVisible(true);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             }
